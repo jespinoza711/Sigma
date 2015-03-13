@@ -1,0 +1,150 @@
+<div class="row">
+    <div class="row" style="margin-top:5em">
+        <div class="col-md-12">
+            <div class="panel panel-primary ">
+                <div class="panel-heading ">
+                    <h2 class="panel-title">Formato 342 Nissan</h3>
+                </div>
+                <div class="panel-body">
+                    <form ng-submit="vm.completar()">
+                        <div class="row" style="padding: 1em">
+                            <img src="/Images/nissan-logo.png" style="width:7%">
+                            <span class="pull-right" style="margin-bottom:1em">
+                                <button type="submit" class="btn btn-default guardarFormato" data-toggle="modal" data-placement="top" data-target="#modalGuardarFormato">
+                                    Completar Formato <i class="fa fa-save"></i>
+                                </button>
+                                <button type="button" class="btn btn-danger back" ng-click="vm.index()">
+                                    Cancelar Llenado <i class="fa fa-arrow-left"></i>
+                                </button>
+                            </span>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-8 mantNissan">
+                                <label>Mantenimiento:</label>
+                                <br>
+                                <input type="checkbox" ng-true-value="1" ng-false-value="0" ng-model="vm.model.PREVENTIVO" onclick="return false">Preventivo
+                                <input type="checkbox" ng-true-value="1" ng-false-value="0" ng-model="vm.model.CORRECTIVO" onclick="return false">Correctivo
+                                <input type="text" class="form-control" style="width:30%" ng-model="vm.model.KM" readonly>
+                            </div>
+                            <div class="col-md-2">
+                                <label>Numero de OT:</label>
+                                <input type="text" class="form-control" ng-model="vm.model.OT" onclick="$('#modalOT').modal('show');">
+                            </div>
+                            <!--<div class="col-md-2">
+                                <label>Fecha:</label>
+                                <input type="text" class="form-control" ng-model="vm.model.Fecha">
+                            </div>-->
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Cliente:</label>
+                                <input type="text" class="form-control" ng-model="vm.model.CLIENTE" readonly>
+                            </div>
+                            <div class="col-md-4">
+                                <label>Técnico:</label>
+                                <input type="text" class="form-control" ng-model="vm.model.Tecnico" required>
+                            </div>
+                            <div class="col-md-2">
+                                <label>Placa:</label>
+                                <input type="text" class="form-control" ng-model="vm.model.PLACA" readonly>
+                            </div>
+                        </div>
+                        <hr />
+                        <!--<span class="pull-left" style="margin: 1em; width:500px">
+            <input type="text" class="form-control" placeholder="Nombre de Informe" ng-model="vm.model.Nombre" style="display:inline-block; width:100%" />
+        </span>
+        <span class="pull-right" style="margin:1em 0; width:650px">
+            <input type="text" class="form-control" placeholder="Nombre de Grupo" ng-model="vm.nombreGrupo" style="display:inline-block; width:45%" ng-disabled="vm.estaModoEdicion" />
+            <button class="btn btn-success pull-right" ng-click="vm.agregarGrupoEspecial()" ng-disabled="vm.estaModoEdicion">
+                Agregar Grupo Especial <i class="fa fa-plus-circle"></i>
+            </button>
+            <button class="btn btn-success pull-right" ng-click="vm.agregarGrupo()" style="margin:0 1em" ng-disabled="vm.estaModoEdicion">
+                Agregar Grupo <i class="fa fa-plus-circle"></i>
+            </button>
+
+        </span>-->
+                        <tabla-informe-inspeccion grupos="vm.model.Grupos"
+                                                  esta-modo-edicion="vm.estaModoEdicion">
+                        </tabla-informe-inspeccion>
+                        <tabla-grupo-especial grupos-especiales="vm.model.GruposEspeciales"
+                                              esta-modo-edicion="vm.estaModoEdicion">
+                        </tabla-grupo-especial>
+                        <tabla-control-calidad grupos-calidad="vm.model.GruposCalidad"
+                                               esta-modo-edicion="vm.estaModoEdicion">
+                        </tabla-control-calidad>
+
+                        <div class="col-md-12">
+                            <label>Resultados del Mantenimiento Periodico:</label>
+                            <textarea class="form-control" rows="3" id="textArea" style="resize:none" ng-model="vm.model.ResultadosMantenimiento" required></textarea>
+                        </div>
+                        <div class="col-md-4 text-center">
+                            <!--<span class="" name="fechaCreacion">10/01/2015</span>
+                            <p>Fecha</p>-->
+                        </div>
+                        <div class="col-md-4 text-center">
+                            <!--<input class="form-control" name="nombreTecnico" type="text" placeholder="Escribe el nombre del Tecnico">
+            <p>Nombre del Técnico</p>-->
+                        </div>
+                        <div class="col-md-4 text-center">
+                            <!--<input class="form-control" name="nombreAsesor" type="text" placeholder="Escribe el nombre del Asesor">
+            <p>Nombre del Asesor</p>-->
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="modalOT" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Numero de OT</h4>
+            </div>
+            <div class="modal-body">
+                <p>Ingrese el numero de OT a consultar:</p>
+                <input type="text" class="form-control" id="numeroOT" ng-model="vm.model.OT" />
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary" ng-click="vm.buscarCliente()">Buscar</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<div id="modalDiscriminador" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header text-center">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Resultados Obtenidos</h4>
+            </div>
+            <div class="modal-body">
+                <p>Escoja el registro a consultar:</p>
+                <table class="table table-bordered text-center tblListaFormatos">
+                    <thead>
+                        <tr>
+                            <th class="text-center">Cliente</th>
+                            <th class="text-center">Categoria</th>
+                            <th class="text-center">DNI/RUC</th>
+                            <th class="text-center">Placa</th>
+                            <th class="text-center">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tr ng-repeat="resultado in vm.resultados">
+                        <td>{{resultado.CLIENTE}}</td>
+                        <td>{{resultado.COMP}}</td>
+                        <td>{{resultado.DNIRUC}}</td>
+                        <td>{{resultado.PLACA}}</td>
+                        <td><button class="btn btnVer" ng-click="vm.cargarDatos(resultado)"><i class="fa fa-search"></i> Ver</button></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

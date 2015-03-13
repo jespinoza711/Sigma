@@ -1,0 +1,50 @@
+    
+    <div class="row" ng-repeat="grupo in gruposEspeciales">
+        <h3 ng-model="grupo.nombre"></h3>
+        <table class="table table-bordered" style="margin-top:2em">
+            <thead>
+                <tr>
+                    <th colspan="3" style="background:#248CC2; font-weight: bold; width:1000px">Mantenimiento</th>
+                    <th style="background:#248CC2; font-weight: bold; max-width:150px">Descripcion</th>
+                    <th style="background:#248CC2; font-weight: bold; max-width:150px"">Valor</th>
+                    <th style="background:#248CC2; font-weight: bold; max-width:150px"">Unidad</th>
+                    <th style="background:#248CC2; font-weight: bold; width:50px">Acciones</th>
+                </tr>
+                <tr>
+                    <th id="revisadoOk" style="width:200px"><h5>Mas de 4 mm</h5></th>
+                    <th id="atencionProxima" style="width:200px"><h5>De 2 mm a 4 mm</h5></th>
+                    <th id="atencionInmediata" style="width:200px"><h5>De 2 mm a menos</h5></th>
+                    <th colspan="4" class="subtitulo" style="background:#fff">
+                        <label>{{grupo.DescripcionGrupo}}</label>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="detalle in grupo.Detalles">
+                    <td class="text-center" ng-repeat="Opcion in detalle.OpcionesCheckRevision">
+                        <div class="radio">
+                            <label>
+                                <input type="checkbox" ng-model="Opcion.Valor" ng-true-value="'True'" ng-true-value="'False'" ng-disabled="estaModoEdicion">
+                            </label>
+                        </div>
+                    </td>
+                    <td style="width:200px">
+                        <input type="text" class="form-control" ng-model="detalle.Descripcion" ng-disabled="!estaModoEdicion"/>
+                    </td>
+                    <td style="width:200px" ng-repeat="opciones in detalle.OpcionesMedicion">
+                        <input type="text" class="form-control" ng-model="opciones.Valor" ng-disabled="estaModoEdicion" />
+                    </td>
+                    <td style="width:200px" ng-repeat="opciones in detalle.OpcionesMedicion">
+                        <input type="text" class="form-control" ng-model="opciones.Descripcion" ng-disabled="estaModoedicion" />
+                    </td>
+                    <td>
+                        <button class="btn btnAnular" ng-click="eliminarDetalle($index, grupo)" ng-hide="!estaModoEdicion"><i class="fa fa-remove"></i></button>
+                    </td>
+                </tr>
+            </tbody>
+
+        </table>
+        <button type="button" class="btn btn-success pull-right" ng-click="agregarDetalleAccesorios(grupo)" ng-hide="!estaModoEdicion" style="margin:1em">
+            Agregar detalle <i class="fa fa-plus-circle"></i>
+        </button>
+    </div>

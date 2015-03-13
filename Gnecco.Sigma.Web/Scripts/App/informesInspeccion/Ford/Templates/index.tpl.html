@@ -1,0 +1,57 @@
+<section class="container-fluid">
+	<div class="row" style="padding:1em">
+          	<h3 class="subtitulo text-center">INFORMES DE INSPECCIÓN MAESTROS FORD</h3>
+            <hr>
+            <div class="col-md-4">
+                <button class="btn btn-success margen-2x" ng-click="vm.nuevo()">
+                  <i class="fa fa-plus"></i> Crear Nuevo Informe</button>
+            </div>
+            <div class="col-md-4"></div>
+            <div class="input-group col-md-4">
+              <input type="text" class="form-control" placeholder="Escribe el nombre de un formulario para buscar">
+              <span class="input-group-btn">
+                <a class="btn btn-primary" href="#"><i class="fa fa-search"></i></a>
+              </span>
+            </div>
+	</div>
+	<div class="row" style="padding:1em">
+          <table class="table table-bordered text-center tblListaFormatos">
+            <thead>
+              <tr>
+                <td>Nombre de Informe</td>
+                <td style="width:150px">Fecha de Creación</td>
+                <td style="width:150px">Estado</td>
+                <td style="width:130px">Acciones</td>
+              </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="informeInspeccion in vm.informesInspeccion">
+                    <td class="text-left">{{ informeInspeccion.NombreInforme }}</td>
+                    <td>{{ informeInspeccion.FechaCreacion }}</td>
+                    <td>{{ informeInspeccion.Estado }}</td>
+                    <td>
+                        <!--<button class="btn btnVer" ng-click="vm.ver(informeInspeccion.Id)"><i class="fa fa-search"></i> Ver</button>
+                        <button class="btn btnVerCompletos" ng-click="vm.verCompletados(informeInspeccion.Id)">
+                            <i class="fa fa-file-text-o"></i> Ver Informes Completados
+                        </button>
+                        <button class="btn btnAnular" ng-click="vm.anular(informeInspeccion.Id)"><i class="fa fa-close"></i> Anular</button>
+                        <button class="btn btnCompletar" ng-click="vm.completar(informeInspeccion.Id)"><i class="fa fa-pencil"></i> Completar</button>-->
+                        <div class="dropdown">
+                            <button class="btn btn-default dropdown-toggle" type="button" id="menuAcciones" data-toggle="dropdown" aria-expanded="false">
+                                Seleccione
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" role="menu" aria-labelledby="menuAcciones">
+                                <li role="presentation"><a role="menuitem" tabindex="-1" ng-click="vm.ver(informeInspeccion.Id)"><i class="fa fa-search"></i> Ver Informe</a></li>
+                                <li role="presentation"><a role="menuitem" tabindex="-1" ng-click="vm.verCompletados(informeInspeccion.Id)"><i class="fa fa-bars"></i> Ver Informes Completos</a></li>
+                                <li role="presentation"><a role="menuitem" tabindex="-1" ng-click="vm.completar(informeInspeccion.Id)"><i class="fa fa-edit"></i> Completar Informe</a></li>
+                                <li role="presentation"><a role="menuitem" tabindex="-1" ng-click="vm.anular(informeInspeccion.Id)"><i class="fa fa-close"></i> Anular Informe</a></li>
+                            </ul>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+          </table>  
+        </div>
+    </div>
+</section>

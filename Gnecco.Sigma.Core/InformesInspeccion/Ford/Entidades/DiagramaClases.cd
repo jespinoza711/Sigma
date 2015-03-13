@@ -1,0 +1,262 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Gnecco.Sigma.Core.InformesInspeccion.Ford.Entidades.DetalleGrupoArticuloMantenimiento">
+    <Position X="8" Y="9.75" Width="2.75" />
+    <AssociationLine Name="Opciones" Type="Gnecco.Sigma.Core.Shared.Opcion">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.966" Y="1.271" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAAAAAAAAABAkAAAAAAAAAAAAAAAAAAAACAA=</HashCode>
+      <FileName>InformesInspeccion\Ford\Entidades\DetalleGrupoArticuloMantenimiento.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Opciones" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Gnecco.Sigma.Core.InformesInspeccion.Ford.Entidades.DetalleGrupoDesgasteLlanta">
+    <Position X="1.5" Y="9.75" Width="2.25" />
+    <AssociationLine Name="Opciones" Type="Gnecco.Sigma.Core.Shared.Opcion">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="1.732" Y="0.16" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAAAAAAAAABAkAAAAAAAAAAAAAAAAAAAACAA=</HashCode>
+      <FileName>InformesInspeccion\Ford\Entidades\DetalleGrupoDesgasteLlanta.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Opciones" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Gnecco.Sigma.Core.InformesInspeccion.Ford.Entidades.DetalleGrupoSistemaComponente">
+    <Position X="4.25" Y="12.5" Width="2.5" />
+    <AssociationLine Name="Opciones" Type="Gnecco.Sigma.Core.Shared.Opcion">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.06" Y="0.461" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAAAAQAACAA=</HashCode>
+      <FileName>InformesInspeccion\Ford\Entidades\DetalleGrupoSistemaComponente.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Opciones" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Gnecco.Sigma.Core.InformesInspeccion.Ford.Entidades.GrupoArticuloMantenimiento">
+    <Position X="7.25" Y="7" Width="2.25" />
+    <AssociationLine Name="Detalle" Type="Gnecco.Sigma.Core.InformesInspeccion.Ford.Entidades.DetalleGrupoArticuloMantenimiento">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.127" Y="0.662" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>InformesInspeccion\Ford\Entidades\GrupoArticuloMantenimiento.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Detalle" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Gnecco.Sigma.Core.InformesInspeccion.Ford.Entidades.GrupoDesgasteFreno">
+    <Position X="12" Y="7" Width="1.75" />
+    <AssociationLine Name="SubGrupos" Type="Gnecco.Sigma.Core.InformesInspeccion.Ford.Entidades.SubGrupoDesgasteFreno">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-1.055" Y="0.917" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>InformesInspeccion\Ford\Entidades\GrupoDesgasteFreno.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="SubGrupos" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Gnecco.Sigma.Core.InformesInspeccion.Ford.Entidades.GrupoDesgasteLlanta">
+    <Position X="1.25" Y="7" Width="1.75" />
+    <AssociationLine Name="Detalle" Type="Gnecco.Sigma.Core.InformesInspeccion.Ford.Entidades.DetalleGrupoDesgasteLlanta">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.093" Y="0.729" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>InformesInspeccion\Ford\Entidades\GrupoDesgasteLlanta.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Detalle" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Gnecco.Sigma.Core.InformesInspeccion.Ford.Entidades.GrupoSistemaComponente">
+    <Position X="4.5" Y="7.25" Width="2.25" />
+    <AssociationLine Name="SubGrupos" Type="Gnecco.Sigma.Core.InformesInspeccion.Ford.Entidades.SubGrupoSistemaComponente" FixedToPoint="true">
+      <Path>
+        <Point X="5.625" Y="8.675" />
+        <Point X="5.625" Y="9.75" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-1.197" Y="0.368" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>InformesInspeccion\Ford\Entidades\GrupoSistemaComponente.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="SubGrupos" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Gnecco.Sigma.Core.InformesInspeccion.Ford.Entidades.SubGrupoDesgasteFreno">
+    <Position X="11.25" Y="10" Width="2" />
+    <InheritanceLine Type="Gnecco.Sigma.Core.Shared.GrupoInformeInspeccion" FixedToPoint="true">
+      <Path>
+        <Point X="7.5" Y="5.988" />
+        <Point X="7.5" Y="6.625" />
+        <Point X="11.5" Y="6.625" />
+        <Point X="11.5" Y="10" />
+      </Path>
+    </InheritanceLine>
+    <AssociationLine Name="Detalle" Type="Gnecco.Sigma.Core.InformesInspeccion.Ford.Entidades.DetalleGrupoDesgasteFreno">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.271" Y="0.514" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAAAAAAEAAAAAAAQAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>InformesInspeccion\Ford\Entidades\SubGrupoDesgasteFreno.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Detalle" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Gnecco.Sigma.Core.InformesInspeccion.Ford.Entidades.SubGrupoSistemaComponente">
+    <Position X="4.25" Y="9.75" Width="3.25" />
+    <InheritanceLine Type="Gnecco.Sigma.Core.Shared.GrupoInformeInspeccion" FixedToPoint="true">
+      <Path>
+        <Point X="7.5" Y="5.988" />
+        <Point X="7.5" Y="6.625" />
+        <Point X="4.25" Y="6.625" />
+        <Point X="4.25" Y="9.375" />
+        <Point X="4.688" Y="9.375" />
+        <Point X="4.688" Y="9.75" />
+      </Path>
+    </InheritanceLine>
+    <AssociationLine Name="Detalle" Type="Gnecco.Sigma.Core.InformesInspeccion.Ford.Entidades.DetalleGrupoSistemaComponente">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.11" Y="0.662" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAAAAAAEAAAAAAAQAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>InformesInspeccion\Ford\Entidades\SubGrupoSistemaComponente.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Detalle" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Gnecco.Sigma.Core.InformesInspeccion.Ford.Entidades.InformeInspeccionFord">
+    <Position X="0.75" Y="1.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAgBAEAAAAAAAAAAABAAAAAAAAAAAAAAAgAAAAAAAA=</HashCode>
+      <FileName>InformesInspeccion\Ford\Entidades\InformeInspeccionFord.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Grupos" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Gnecco.Sigma.Core.InformesInspeccion.Ford.ObjetosValor.InformacionVehiculoFord">
+    <Position X="3.75" Y="0.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAABQAAAAAAAAAAIAAAAAAAEAAAAAAAAgAQAAAAAA=</HashCode>
+      <FileName>InformesInspeccion\Ford\ObjetosValor\InformacionVehiculoFord.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Gnecco.Sigma.Core.Shared.GrupoInformeInspeccion">
+    <Position X="6.5" Y="4.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAABAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Shared\GrupoInformeInspeccion.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Gnecco.Sigma.Core.Shared.Opcion">
+    <Position X="8.25" Y="14.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AACCAAAAAAAAAAAAAAAAAAABIAAAAAAAQAAAAAAIAAA=</HashCode>
+      <FileName>Shared\Opcion.cs</FileName>
+      <NewMemberFileName>Shared\DetalleInformeInspeccion.cs</NewMemberFileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Gnecco.Sigma.Core.InformesInspeccion.Ford.Entidades.DetalleGrupoDesgasteFreno">
+    <Position X="12.5" Y="12.5" Width="3" />
+    <AssociationLine Name="Opciones" Type="Gnecco.Sigma.Core.Shared.Opcion" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="12.5" Y="14.196" />
+        <Point X="12.125" Y="14.196" />
+        <Point X="12.125" Y="15.188" />
+        <Point X="10.5" Y="15.188" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAAAAQAACAA=</HashCode>
+      <FileName>InformesInspeccion\Ford\Entidades\DetalleGrupoDesgasteFreno.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Opciones" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Gnecco.Sigma.Core.InformesInspeccion.Ford.ObjetosValor.ClienteFord">
+    <Position X="13" Y="0.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAABAAAAAAAAA=</HashCode>
+      <FileName>InformesInspeccion\Ford\ObjetosValor\ClienteFord.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Gnecco.Sigma.Core.Shared.DetalleInformeInspeccionCompleto">
+    <Position X="14.25" Y="6.25" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAACIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Shared\DetalleInformeInspeccionCompleto.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Valores" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Gnecco.Sigma.Core.Shared.ValorOpcion">
+    <Position X="17.25" Y="3.75" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAIQAACAAEAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Shared\ValorOpcion.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Opcion" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Gnecco.Sigma.Core.InformesInspeccion.Ford.Entidades.DetalleInformeInspeccionFordCompleto">
+    <Position X="10.25" Y="4.25" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>InformesInspeccion\Ford\Entidades\DetalleInformeInspeccionFordCompleto.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Gnecco.Sigma.Core.InformesInspeccion.Ford.Entidades.InformeInspeccionFordCompleto">
+    <Position X="8.25" Y="0.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAgAAAAAAgAAIACAAEggAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>InformesInspeccion\Ford\Entidades\InformeInspeccionFordCompleto.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="DetalleCompleto" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Gnecco.Sigma.Core.Shared.DetalleInformeInspeccion">
+    <Position X="15.25" Y="9.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAIAAAAAAAABAAAAAAAAAAAAAAAIAAA=</HashCode>
+      <FileName>Shared\DetalleInformeInspeccion.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

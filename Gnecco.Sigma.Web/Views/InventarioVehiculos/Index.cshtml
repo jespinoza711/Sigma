@@ -1,0 +1,23 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div ng-app="informesInspeccion.inventarioVehiculos">
+
+    <ui-view>
+
+    </ui-view>
+</div>
+
+        @section scripts{
+            <script type="text/javascript" src="~/Scripts/App/Shared/Api/inventarioVehiculos.api.js"></script>
+
+            <script src="~/Scripts/App/Shared/Services/Mensajes.srv.js"></script>
+            <script src="~/Scripts/App/Shared/Services/Loader.srv.js"></script>
+            <script type="text/javascript" src="~/Scripts/App/InventarioVehiculos/app.js"></script>
+
+            <script type="text/javascript" src="~/Scripts/App/InventarioVehiculos/Controllers/index.ctrl.js"></script>
+            <script type="text/javascript" src="~/Scripts/App/InventarioVehiculos/Controllers/nuevo.ctrl.js"></script>
+            <script type="text/javascript" src="~/Scripts/App/InventarioVehiculos/Controllers/ver.ctrl.js"></script>
+        }

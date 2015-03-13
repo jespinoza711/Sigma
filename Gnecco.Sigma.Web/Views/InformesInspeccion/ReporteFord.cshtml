@@ -1,0 +1,290 @@
+﻿@model Gnecco.Sigma.Web.ViewModels.InformesInspeccion.Ford.InformeInspeccionFordViewModel
+@{
+    Layout = null;
+    ViewBag.Title = "ReporteFord";
+}
+<link href="~/Content/Vendor/bootstrap.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="~/Content/Vendor/font-awesome.min.css">
+<style>
+    .azul {
+        background: #2980b9;
+        color: #ffffff;
+    }
+
+    .ancho-medio {
+        width: 400px;
+    }
+
+    .padding {
+        padding: 5px;
+    }
+
+    .table {
+        font-size: 0.6em;
+    }
+    .naranja{
+        background : #f39c12;
+        color: #ffffff;
+    }
+    .amarillo {
+        background: #f1c40f;
+        color: #ffffff;
+    }
+
+    .verde {
+        background: #27ae60;
+        color: #ffffff;
+    }
+
+    .rojo {
+        background: #e74c3c;
+        color: #ffffff;
+    }
+    .reparado{
+        width:30px;
+    }
+    .atencion{
+        width:20px;
+    }
+    body{
+        font-size:12px;
+    }
+</style>
+<div class="text-center">
+    <h4>Tarjeta de Reporte de Inspeccion Multi-Punto Segun Recomendado por la Compañia Automotriz</h4>
+</div>
+<div class="row">
+    <div class="col-xs-12">
+        <div class="col-xs-6"></div>
+        <div class="form-group col-xs-2">
+            <label>Fecha </label>
+            <p>@Model.Model.Fecha</p>
+        </div>
+        <div class="form-group col-xs-2">
+            <label>RO/Tag </label>
+            <p>@Model.Model.OT</p>
+        </div>
+        <div class="form-group col-xs-2">
+            <label>Mes Inspeccion Estatal</label>
+            <p>@Model.Model.MESINSPECCIONESTATAL</p>
+        </div>
+    </div>
+    <div class="col-xs-12">
+        <div class="form-group col-xs-6">
+            <label>Nombre </label>
+            <p>@Model.Model.CLIENTE</p>
+        </div>
+        <div class="form-group col-xs-4">
+            <label>Marca/Modelo/Año </label>
+            <p>@Model.Model.Marca / @Model.Model.MODELO / @Model.Model.ANIO  </p>
+        </div>
+        <div class="form-group col-xs-2">
+            <label>Millaje </label>
+            <p>@Model.Model.MILLAJE</p>
+        </div>
+    </div>
+    <div class="col-xs-12">
+        <div class="form-group col-xs-6">
+            <label>Direccion de correo electronico </label>
+            <p>@Model.Model.EMAIL</p>
+        </div>
+        <div class="form-group col-xs-4">
+            <label>Vin # </label>
+            <p>@Model.Model.VIN</p>
+        </div>
+        <div class="form-group col-xs-2">
+            <label>Placa </label>
+            <p>@Model.Model.PLACA</p>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-6">
+        <div class="col-xs-12 azul text-center">
+            <h5>@Model.Model.GrupoArticuloMantenimiento.Descripcion </h5>
+        </div>
+        <div class="col-xs-12" style="padding:0">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th colspan="2">
+                            VENCIDO
+                        </th>
+                        <th class="text-center reparado" colspan="1">
+                            REPARADO
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var detalle in Model.Model.GrupoArticuloMantenimiento.Detalle)
+                    {
+                        <tr>
+                            @foreach (var opcion in detalle.OpcionesDesgaste)
+                            {
+                                @Html.Partial("_ValorOpcion", new { Valor = opcion.Valor })
+                            }
+                            <td>@detalle.Descripcion</td>
+                            @foreach (var opcion in detalle.OpcionesReparacion)
+                            {
+                                @Html.Partial("_ValorOpcion", new { Valor = opcion.Valor })
+                            }
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            <p class="text-justify" style="font-size:0.7em">* Esta es una lista parcial de los articulos de mantenimiento de su vehiculo y NO incluye todo. Le pedimos que vea los requisitos de mantenimiento especificos en su Manual del Propietario</p>
+        </div>
+    </div>
+    <div class="col-xs-6">
+        <div class="col-xs-12 azul text-center">
+            <h5>@Model.Model.GrupoSistemaComponente.Descripcion </h5>
+        </div>
+        @foreach (var subGrupo in Model.Model.GrupoSistemaComponente.SubGrupos)
+        {
+            <div class="col-xs-12" style="padding:0">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th class="naranja" colspan="4">
+                                @subGrupo.Descripcion
+                            </th>
+                            <th class="naranja text-center reparado" colspan="1">
+                                REPARADO
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var detalle in subGrupo.Detalle)
+                        {
+                            <tr>
+                                @Html.Partial("_ValorOpcion", new { Valor = detalle.OpcionesAtencion[0].Valor, Color = "verde" })
+                                @Html.Partial("_ValorOpcion", new { Valor = detalle.OpcionesAtencion[1].Valor, Color = "amarillo" })
+                                @Html.Partial("_ValorOpcion", new { Valor = detalle.OpcionesAtencion[2].Valor, Color = "rojo" })
+                                <td>@detalle.Descripcion</td>
+                                @foreach (var opcion in detalle.OpcionesReparacion)
+                                {
+                                    @Html.Partial("_ValorOpcion", new { Valor = opcion.Valor })
+                                }
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        }
+        
+    </div>
+    <div class="col-xs-12">
+        <div class="col-xs-12 azul text-center">
+            <h5> DESGASTE DE LLANTAS/FRENOS</h5>
+        </div>
+        <div class="col-xs-12 text-center table-bordered" style="padding:0;font-size:0.5em">
+            <div class="col-xs-3 azul">Banda de Rodamiento</div>
+            <div class="col-xs-3 verde"> 7/32º y más</div>
+            <div class="col-xs-3 amarillo"> de 4/32º a 6/32º</div>
+            <div class="col-xs-3 rojo"> 3/32º y menos</div>
+        </div>
+        <div class="col-xs-12 text-center table-bordered"  style=" padding:0;font-size:0.5em">
+            <div class="col-xs-3 azul"> Bandas de Frenos</div>
+            <div class="col-xs-3 verde">Mas de 5mm o 7/32º (disco) o más de 2mm o 3/32º (tambor)</div>
+            <div class="col-xs-3 amarillo"> De 3 a 5mm o de 4/32º (disco) o de 1.01 a 2mm (tambor) o de 202º</div>
+            <div class="col-xs-3 rojo"> Menos de 3mm o 4/32º (disco) o 1mm o 2/32º o menos(tambor)</div>
+        </div>
+        <div class="col-xs-12" style="padding:0">
+            <div class="col-xs-3" style="padding:0">
+                <div class="col-xs-12" style="padding:0">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th colspan="2">
+                                    DESGASTE DE LLANTAS INDICA
+                                </th>
+                                <th class="text-center reparado" colspan="1">
+                                    REPARADO
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var detalle in Model.Model.GrupoDesgasteLlanta.Detalle)
+                            {
+                                <tr>
+                                    @foreach (var opcion in detalle.OpcionesDesgaste)
+                                    {
+                                        @Html.Partial("_ValorOpcion", new { Valor = opcion.Valor })
+                                    }
+                                    <td>@detalle.Descripcion</td>
+                                    @foreach (var opcion in detalle.OpcionesReparacion)
+                                    {
+                                        @Html.Partial("_ValorOpcion", new { Valor = opcion.Valor })
+                                    }
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="col-xs-9" style="padding:0">
+                @foreach (var subGrupo in Model.Model.GrupoDesgasteFreno.SubGrupos)
+                {
+                    <div class="col-xs-6" style="padding:0">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th class="naranja" colspan="4">
+                                        @subGrupo.Descripcion
+                                    </th>
+                                    <th class="naranja reparado text-center" colspan="1">
+                                        REPARADO
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var detalle in subGrupo.Detalle)
+                                {
+                                <tr>
+                                    @Html.Partial("_ValorOpcion", new { Valor = detalle.OpcionesAtencion[0].Valor, Color = "verde" })
+                                    @Html.Partial("_ValorOpcion", new { Valor = detalle.OpcionesAtencion[1].Valor, Color = "amarillo" })
+                                    @Html.Partial("_ValorOpcion", new { Valor = detalle.OpcionesAtencion[2].Valor, Color = "rojo" })
+                                    <td>@detalle.Descripcion</td>
+                                    @foreach (var opcion in detalle.OpcionesReparacion)
+                                        {
+                                        @Html.Partial("_ValorOpcion", new { Valor = opcion.Valor })
+                                        }
+                                </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                }
+            </div>
+        </div>
+        <div class="col-xs-12">
+            <div class="row">
+                <div class="form-group col-xs-8">
+                    <label>Comentarios </label>
+                    <p>@Model.Model.Comentarios</p>
+                </div>
+                <div class="form-group col-xs-4" style="font-size:0.7em">
+                    <p>Usted debe seguir los procedimientos de garantia adecuados en los ..... de reparacion que despues de llevar a cabo el proceso de inspeccion de .... multiples se descubra que esten bajo garantia, sin importar si el cliente lo ...</p>
+                    <br />
+                    <p>Se requiere que el Gerente de Servicio firme los articulos que se encuentren ... garantia en la orden de reparacion para que se puedan someter bajo la garantia</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-xs-6">
+                    <label>Asesor de Servicio </label>
+                    <p>@Model.Model.AsesorServicio
+                </div>
+                <div class="form-group col-xs-6">
+                    <label>Firma Cliente </label>
+                    <p></p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-xs-6">
+                    <label>Tecnico </label>
+                    <p>@Model.Model.NombreTecnico
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

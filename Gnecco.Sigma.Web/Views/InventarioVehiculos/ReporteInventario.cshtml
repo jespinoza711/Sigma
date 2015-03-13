@@ -1,0 +1,446 @@
+﻿@model Gnecco.Sigma.Web.ViewModels.Inventario.InventarioGetViewModel
+@{
+    Layout = null;
+    ViewBag.Title = "ReporteNissan";
+}
+<link href="~/Content/Vendor/bootstrap.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="~/Content/Vendor/font-awesome.min.css">
+<style>
+    .azul {
+        background: #2980b9;
+        color: #ffffff;
+    }
+
+    .ancho-medio {
+        width: 400px;
+    }
+
+    .padding {
+        padding: 5px;
+    }
+
+    .table {
+        font-size: 0.9em;
+    }
+
+    .naranja {
+        background: #f39c12;
+        color: #ffffff;
+    }
+
+    .amarillo {
+        background: #f1c40f;
+        color: #ffffff;
+    }
+
+    .verde {
+        background: #27ae60;
+        color: #ffffff;
+    }
+
+    .rojo {
+        background: #e74c3c;
+        color: #ffffff;
+    }
+
+    .reparado {
+        width: 30px;
+    }
+
+    .atencion {
+        width: 20px;
+    }
+
+    body {
+        font-size: 12px;
+    }
+</style>
+<div class="row text-center" style="margin-bottom:1em">
+    <div class="col-xs-10">
+        <h2>INVENTARIO DE VEHÍCULOS</h2>
+    </div>
+    <div class="col-xs-2">
+        <label>Numero OT</label>
+        <p>@Model.OT</p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12">
+        <table class="table">
+            <tr>
+                <td><label>Fecha de recepcion</label></td>
+                <td>@Model.FechaRecepcion</td>
+                <td><label>Hora</label></td>
+                <td>@Model.HoraPrometida</td>
+                <td><label>Placa</label></td>
+                <td>@Model.Placa</td>
+                <td><label>Kilometraje de llegada</label></td>
+                <td>@Model.KilometrajeLlegada</td>
+            </tr>
+        </table>
+    </div>
+</div>
+<td class="row">
+    <td class="col-xs-12">
+        <table class="table">
+            <tr>
+                <td><label>FECHA PROMETIDA</label></td>
+                <td>@Model.FechaPrometida</td>
+                <td><label>HORA PROMETIDA</label></td>
+                <td>@Model.HoraPrometida</td>
+            </tr>
+            <tr>
+                <td><label>FACTURAR A:</label></td>
+                <td>@Model.FacturarA</td>
+                <td><label>RUC</label></td>
+                <td>@Model.Ruc</td>
+            </tr>
+            <tr>
+                <td><label>PROPIETARIO</label></td>
+                <td>@Model.Propietario</td>
+                @if (@Model.BoletaFactura == true)
+                {
+                    <td>
+                        <i class="fa fa-check-square-o"></i> Boleta
+                    </td>
+                    <td>
+                        <i class="fa fa-square-o"></i> Factura
+                    </td>
+                }
+                else
+                {
+                    <td>
+                        <i class="fa fa-square-o"></i> Boleta
+                    </td>
+                    <td>
+                        <i class="fa fa-check-square-o"></i> Factura
+                    </td>
+                }
+            </tr>
+            <tr>
+                <td><label>DIRECCION:</label></td>
+                <td>@Model.Direccion</td>
+                <td><label>TELEFONO/MOVIL</label></td>
+                <td>@Model.TelefonoMovil</td>
+            </tr>
+            <tr>
+                <td><label>CORREO ELECTRONICO:</label></td>
+                <td>@Model.CorreoElectronico</td>
+                <td><label>DNI</label></td>
+                <td>@Model.Dni</td>
+            </tr>
+            <tr>
+                <td><label>EL CLIENTE MANIFIESTA QUE:</label></td>
+                <td colspan="3">
+                    @Model.ManifestoCliente
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12">
+        <canvas id="myCanvas" width="750" height="350"></canvas>
+    </div>
+    <div class="col-xs-3">
+        <canvas id="gasolinaCanvas" width="200" height="150"></canvas>
+    </div>
+</div>
+<div class="row">
+    <h2 class="text-center">INVENTARIO DE RECEPCION</h2>
+    <div class="col-xs-6">
+        <div class="table-responsive">
+            <table class="table tblInventarioRecepcion">
+                <tr>
+                    <td>CENICERO</td>
+                    @Html.Partial("_ValorOpcion", new { Valor = @Model.Cenicero })
+                    <td>TAPASOL</td>
+                    @Html.Partial("_ValorOpcion", new { Valor = @Model.TapaSol })
+                </tr>
+                <tr>
+                    <td>ENCENDEDOR</td>
+                    @Html.Partial("_ValorOpcion", new { Valor = @Model.Encendedor })
+                    <td>PLUMILLAS/DUCHAS</td>
+                    @Html.Partial("_ValorOpcion", new { Valor = @Model.PlumillasDuchas })
+                </tr>
+                <tr>
+                    <td>RADIO</td>
+                    @Html.Partial("_ValorOpcion", new { Valor = @Model.Radio })
+                    <td>ESCAPINES</td>
+                    @Html.Partial("_ValorOpcion", new { Valor = @Model.Escapines })
+                </tr>
+                <tr>
+                    <td>MASCARA DE RADIO</td>
+                    @Html.Partial("_ValorOpcion", new { Valor = @Model.MascaraRadio })
+                    <td>EMBL. MASCARA</td>
+                    @Html.Partial("_ValorOpcion", new { Valor = @Model.EmblMascara })
+                </tr>
+                <tr>
+                    <td>ANTENA</td>
+                    @Html.Partial("_ValorOpcion", new { Valor = @Model.Antena })
+                    <td>TAPA DE ACEITE</td>
+                    @Html.Partial("_ValorOpcion", new { Valor = @Model.TapaAceite })
+                </tr>
+                <tr>
+                    <td>TARJETA DE PROPIEDAD</td>
+                    @Html.Partial("_ValorOpcion", new { Valor = @Model.TarjetaPropiedad })
+                    <td>TAPA TANQUE COMB.</td>
+                    @Html.Partial("_ValorOpcion", new { Valor = @Model.TapaTanqueComb })
+                </tr>
+                <tr>
+                    <td>SOAT</td>
+                    @Html.Partial("_ValorOpcion", new { Valor = @Model.Soat })
+                    <td>TAPA DE RADIADOR</td>
+                    @Html.Partial("_ValorOpcion", new { Valor = @Model.TapaRadiador })
+                </tr>
+                <tr>
+                    <td>SEGURO DE RUEDA</td>
+                    @Html.Partial("_ValorOpcion", new { Valor = @Model.SeguroRueda })
+                    <td>TAPA DE DEP. REFRG.</td>
+                    @Html.Partial("_ValorOpcion", new { Valor = @Model.TapaDepRefrg })
+                </tr>
+                <tr>
+                    <td>VASOS DE RUEDA</td>
+                    @Html.Partial("_ValorOpcion", new { Valor = @Model.VasosRueda })
+                    <td>TAPA DEP. LIQ FREN/EMG</td>
+                    @Html.Partial("_ValorOpcion", new { Valor = @Model.TapaDepLiqFren })
+                </tr>
+                <tr>
+                    <td>LUCES BAJAS</td>
+                    @Html.Partial("_ValorOpcion", new { Valor = @Model.LucesBajas })
+                    <td>LLANTA DE REPUESTO</td>
+                    @Html.Partial("_ValorOpcion", new { Valor = @Model.LlantaRepuesto })
+                </tr>
+
+            </table>
+        </div>
+    </div>
+    <div class="col-xs-6">
+        <div class="table-responsive">
+            <table class="table tblInventarioRecepcion">
+                <tr>
+                    <td>LUCES ALTAS</td>
+                    @Html.Partial("_ValorOpcion", new { Valor = @Model.LucesAltas })
+                    <td>GATA/PALANCA</td>
+                    @Html.Partial("_ValorOpcion", new { Valor = @Model.GataPalanca })
+                </tr>
+                <tr>
+                    <td>NEBLINEROS</td>
+                    @Html.Partial("_ValorOpcion", new { Valor = @Model.Neblineros })
+                    <td>LLAVE DE RUEDA</td>
+                    @Html.Partial("_ValorOpcion", new { Valor = @Model.LlaveRueda })
+                </tr>
+                <tr>
+                    <td>CLAXON</td>
+                    @Html.Partial("_ValorOpcion", new { Valor = @Model.Claxon })
+                    <td>EMBL. DE MALETERA</td>
+                    @Html.Partial("_ValorOpcion", new { Valor = @Model.EmblMaletera })
+                </tr>
+                <tr>
+                    <td>ESPEJOS</td>
+                    @Html.Partial("_ValorOpcion", new { Valor = @Model.Espejos })
+                    <td>HERRAMIENTAS</td>
+                    @Html.Partial("_ValorOpcion", new { Valor = @Model.Herramientas })
+                </tr>
+                <tr>
+                    <td>PISOS JEBE/ALFOMBRA</td>
+                    @Html.Partial("_ValorOpcion", new { Valor = @Model.PisosJebeAlfombra })
+                    <td>CAJA DE CD/BAJO</td>
+                    @Html.Partial("_ValorOpcion", new { Valor = @Model.CajaCd })
+                </tr>
+                <tr>
+                    <td>CORTE DE CORRIENTE</td>
+                    @Html.Partial("_ValorOpcion", new { Valor = @Model.CorteCorriente })
+                    <td>BOTIQUIN</td>
+                    @Html.Partial("_ValorOpcion", new { Valor = @Model.Botiquin })
+                </tr>
+                <tr>
+                    <td>LUNAS ELECTRICAS DELT</td>
+                    @Html.Partial("_ValorOpcion", new { Valor = @Model.LunasElectricasDelt })
+                    <td>EXTINTOR</td>
+                    @Html.Partial("_ValorOpcion", new { Valor = @Model.Extintor })
+                </tr>
+                <tr>
+                    <td>LUNAS ELECTRICAS POST</td>
+                    @Html.Partial("_ValorOpcion", new { Valor = @Model.LunasElectricasPost })
+                    <td>TRIANGULO</td>
+                    @Html.Partial("_ValorOpcion", new { Valor = @Model.Triangulo })
+                </tr>
+                <tr>
+                    <td>SIST. A/C /VENTILADOR</td>
+                    @Html.Partial("_ValorOpcion", new { Valor = @Model.SistVentilador })
+                    <td>CABLE BATERIA</td>
+                    @Html.Partial("_ValorOpcion", new { Valor = @Model.CableBateria })
+                </tr>
+                <tr>
+                    <td>TACOMETRO</td>
+                    @Html.Partial("_ValorOpcion", new { Valor = @Model.Tacometro })
+                    <td>CABLE REMOLQUE</td>
+                    @Html.Partial("_ValorOpcion", new { Valor = @Model.CableRemolque })
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+<style type="text/css">
+    .breakhere {
+        page-break-after: always;
+    }
+</style>
+<p class="breakhere">
+    <div class="row" style="margin-bottom:2em">
+        <div class="col-xs-6">
+            <div class="row text-center" style="padding:1em">
+                <h2>Dejó objetos de valor</h2>
+                @if (@Model.ObjetosValor == true)
+                {
+                    <div class="col-xs-6">
+                        <i class="fa fa-check-square-o"></i> SI
+                    </div>
+                    <div class="col-xs-6">
+                        <i class="fa fa-square-o"></i> NO
+                    </div>
+                }
+                else
+                {
+                    <div class="col-xs-6">
+                        <i class="fa fa-square-o"></i> SI
+                    </div>
+                    <div class="col-xs-6">
+                        <i class="fa fa-check-square-o"></i> NO
+                    </div>
+                }
+            </div>
+            <div class="row text-center" style="padding:1em">
+                <h2>No se puede verificar posibles rayaduras por estar el vehículo sucio</h2>
+                @if (@Model.VehiculoSucioRayaduras == true)
+                {
+                    <div class="col-xs-6">
+                        <i class="fa fa-check-square-o"></i> SI
+                    </div>
+                    <div class="col-xs-6">
+                        <i class="fa fa-square-o"></i> NO
+                    </div>
+                }
+                else
+                {
+                    <div class="col-xs-6">
+                        <i class="fa fa-square-o"></i> SI
+                    </div>
+                    <div class="col-xs-6">
+                        <i class="fa fa-check-square-o"></i> NO
+                    </div>
+                }
+            </div>
+        </div>
+        <div class="col-xs-6">
+            <div class="row text-center" style="padding:0.5em">
+                <h3 style="text-decoration:underline; margin:0">RECEPCION GNECCO & CIA</h3>
+                <h3 style="margin:0">(INVENTARIO DE ACCESORIOS)</h3>
+            </div>
+            <div class="row" style="padding:0.5em">
+                <div class="col-xs-6 text-center" style="margin-top:135px">
+<p>@Model.Asesor</p>
+<label>ASESOR</label>
+                </div>
+<div class="col-xs-6 text-center">
+    <div id="signature-pad" class="m-signature-pad">
+        <div class="m-signature-pad--body">
+            <canvas width="200" height="250" onclick="return false"></canvas>
+        </div>
+        <div class="m-signature-pad--footer">
+            <div class="description">Firma de Conformidad</div>
+            <button class="button clear" data-action="clear" style="display:none">Limpiar</button>
+            <button class="button save" data-action="save" style="display:none">Guardar</button>
+        </div>
+    </div>
+</div>
+
+        </div>
+    </div>
+</div>
+<div class="row" style="margin-bottom:1em">
+    <div class="col-md-12">
+        <label>OBSERVACIONES</label>
+        <p>@Model.Observaciones</p>
+    </div>
+</div>
+
+@Html.Partial("_Circulos")
+<script src="~/Scripts/Vendor/jquery-1.11.1.min.js"></script>
+<script src="/Scripts/Vendor/signature_pad.js"></script>
+<script src="/Scripts/Vendor/draw-car.js"></script>
+<script src="/Scripts/Vendor/app.js"></script>
+<script>
+    ruta = @Html.Raw("'" + @Model.RutaFirma + "'");
+    signaturePad.fromDataURL(ruta);
+
+
+    @foreach (var coordenada in @Model.Coordenadas)
+    {
+        <text>
+    circulos.push({
+        "PointLeft" : @Convert.ToInt32(coordenada.PointLeft),
+        "PointBottom" : @Convert.ToInt32(coordenada.PointBottom),
+        "PointTop" : @Convert.ToInt32(coordenada.PointTop),
+        "PointRight" : @Convert.ToInt32(coordenada.PointRight),
+        "EstadoAutoparte": @Html.Raw("'" + coordenada.EstadoAutoparte + "'"),
+        "Comentario": @Html.Raw("'"+ coordenada.Comentario + "'"),
+        "Orden" : @coordenada.Orden
+
+        });</text>
+    }
+    dibujarCirculos(circulos);
+
+    @foreach (var coordenadagasolina in @Model.CoordenadasGasolina)
+    {
+        <text>
+    circulosgasolina.push({
+        "PointLeft" : @Convert.ToInt32(coordenadagasolina.PointLeft),
+        "PointBottom" : @Convert.ToInt32(coordenadagasolina.PointBottom),
+        "PointTop" : @Convert.ToInt32(coordenadagasolina.PointTop),
+        "PointRight" : @Convert.ToInt32(coordenadagasolina.PointRight),
+        "EstadoAutoparte": @Html.Raw("'" + coordenadagasolina.EstadoAutoparte + "'"),
+        "Comentario": @Html.Raw("'"+ coordenadagasolina.Comentario + "'"),
+        "Orden" : @coordenadagasolina.Orden
+
+        });</text>
+    }
+    
+    dibujarCirculosGasolina(circulosgasolina);
+
+</script>
+
+<script>
+    var canvas = document.getElementById('myCanvas');
+    var context1 = canvas.getContext('2d');
+    var imageObj = new Image();
+
+    imageObj.onload = function () {
+        context1.drawImage(imageObj, 0, 0, 750, 350);
+    };
+    imageObj.src = "file:///C:/Users/angelo/Documents/ElectroWeb/Gnecco.Sigma/Gnecco.Sigma/Gnecco.Sigma.Web/Images/fotoauto.png";
+</script>
+<script>
+    var canvas = document.getElementById('gasolinaCanvas');
+    var context2 = canvas.getContext('2d');
+    var imageObj2 = new Image();
+
+    imageObj2.onload = function () {
+        context2.drawImage(imageObj2, 0, 0, 200, 150);
+    };
+    imageObj2.src = "file:///C:/Users/angelo/Documents/ElectroWeb/Gnecco.Sigma/Gnecco.Sigma/Gnecco.Sigma.Web/Images/gasolina.png";
+</script>
+@*<script>
+        var rutafirma = "data:image/png;base64,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";
+        console.log(rutafirma);
+        var canvas2 = document.getElementById('signature-pad');
+        var context3 = canvas2.getContext('2d');
+        var imageObj3 = new Image();
+
+        imageObj3.onload = function () {
+            context3.drawImage(imageObj3, 0, 0, 200, 150);
+        };
+        imageObj3.src = signaturePad.fromDataURL(rutafirma);
+    </script>*@
+

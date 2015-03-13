@@ -1,0 +1,32 @@
+﻿@{
+    ViewBag.Title = "Volkswagen";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div ng-app="informesInspeccion.volkswagen">
+
+    <ui-view>
+
+    </ui-view>
+<div>
+
+    @section scripts{
+    <script type="text/javascript" src="~/Scripts/App/Shared/Api/volkswagen.api.js"></script>
+    <script type="text/javascript" src="~/Scripts/App/Shared/ApiFake/volkswagen.api.fake.js"></script>
+
+    <script src="~/Scripts/App/Shared/Services/Mensajes.srv.js"></script>
+    <script src="~/Scripts/App/Shared/Services/Loader.srv.js"></script>
+    <script type="text/javascript" src="~/Scripts/App/InformesInspeccion/Volkswagen/app.js"></script>
+
+    <script type="text/javascript" src="~/Scripts/App/InformesInspeccion/Volkswagen/Controllers/index.ctrl.js"></script>
+    <script type="text/javascript" src="~/Scripts/App/InformesInspeccion/Volkswagen/Controllers/nuevo.ctrl.js"></script>
+    <script type="text/javascript" src="~/Scripts/App/InformesInspeccion/Volkswagen/Controllers/completar.ctrl.js"></script>
+    <script type="text/javascript" src="~/Scripts/App/InformesInspeccion/Volkswagen/Controllers/ver.ctrl.js"></script>
+    <script type="text/javascript" src="~/Scripts/App/InformesInspeccion/Volkswagen/Controllers/verCompletados.ctrl.js"></script>
+    <script type="text/javascript" src="~/Scripts/App/InformesInspeccion/Volkswagen/Controllers/verReporte.ctrl.js"></script>
+
+    <script type="text/javascript" src="~/Scripts/App/InformesInspeccion/Volkswagen/Directives/tablaInformeInspeccion.drv.js"></script>
+    <script type="text/javascript" src="~/Scripts/App/InformesInspeccion/Volkswagen/Directives/tablaEspecial.drv.js"></script>
+
+    }
+

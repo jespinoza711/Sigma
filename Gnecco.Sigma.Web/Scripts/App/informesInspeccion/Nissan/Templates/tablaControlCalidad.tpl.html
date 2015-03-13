@@ -1,0 +1,39 @@
+<div class="row" ng-repeat="grupo in gruposCalidad">
+    <h3 ng-model="grupo.nombre"></h3>
+    <table class="table table-bordered" style="margin-top:2em">
+        <thead>
+            <tr>
+                <th style="background:#248CC2; font-weight: bold; width:100px">Mantenimiento</th>
+                <th style="background:#248CC2; font-weight: bold">Descripcion</th>
+                <th style="background:#248CC2; font-weight: bold; width:50px">Acciones</th>
+            </tr>
+            <tr>
+                <th></th>
+                <th colspan="2" class="subtitulo" style="background:#fff">
+                    <label>{{grupo.DescripcionGrupo}}</label>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="detalle in grupo.Detalles">
+                <td class="text-center" ng-repeat="Opcion in detalle.OpcionesCheckCalidad">
+                    <div class="radio">
+                        <label>
+                            <input type="checkbox" ng-model="Opcion.Valor" ng-true-value="'True'" ng-true-value="'False'" ng-disabled="estaModoEdicion">
+                        </label>
+                    </div>
+                </td>
+                <td class="descripcion">
+                    <textarea class="form-control" rows="1" ng-model="detalle.Descripcion" style="resize:none"></textarea>
+                </td>
+                <td>
+                    <button class="btn btnAnular" ng-click="eliminarDetalle($index, grupo)" ng-hide="!estaModoEdicion"><i class="fa fa-remove"></i></button>
+                </td>
+            </tr>
+        </tbody>
+
+    </table>
+    <button type="button" class="btn btn-success pull-right" ng-click="agregarDetalleCalidad(grupo)" ng-hide="!estaModoEdicion" style="margin:1em">
+        Agregar detalle <i class="fa fa-plus-circle"></i>
+    </button>
+</div>

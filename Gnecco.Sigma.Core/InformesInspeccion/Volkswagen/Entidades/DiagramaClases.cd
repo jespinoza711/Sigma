@@ -1,0 +1,185 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
+  <Class Name="Gnecco.Sigma.Core.InformesInspeccion.Volkswagen.Entidades.InformeInspeccionVolkswagen">
+    <Position X="4.75" Y="1" Width="4.75" />
+    <InheritanceLine Type="Gnecco.Sigma.Core.Shared.InformeInspeccion" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="3.25" Y="2.205" />
+        <Point X="3.802" Y="2.205" />
+        <Point X="3.802" Y="1.546" />
+        <Point X="4.75" Y="1.546" />
+      </Path>
+    </InheritanceLine>
+    <AssociationLine Name="Detalles" Type="Gnecco.Sigma.Core.InformesInspeccion.Volkswagen.Entidades.DetalleInformeInspeccionVolkswagen">
+      <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
+        <Position X="0.575" Y="0.571" Height="0.182" Width="1.188" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="InformesInspeccionCompletos" Type="Gnecco.Sigma.Core.InformesInspeccion.Volkswagen.Entidades.InformeInspeccionVolkswagenCompleto" FixedFromPoint="true">
+      <Path>
+        <Point X="5.721" Y="3.838" />
+        <Point X="5.721" Y="9" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
+        <Position X="-1.463" Y="1.423" Height="0.182" Width="2.351" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAACAABAAAAAEAAAACAAAEAAAAQAAAQACAAAAEAAAA=</HashCode>
+      <FileName>InformesInspeccion\Volkswagen\Entidades\InformeInspeccionVolkswagen.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Detalles" />
+      <Property Name="InformesInspeccionCompletos" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Gnecco.Sigma.Core.InformesInspeccion.Volkswagen.Entidades.DetalleInformeInspeccionVolkswagen">
+    <Position X="10" Y="4.75" Width="3" />
+    <Members>
+      <Property Name="Opciones" Hidden="true" />
+    </Members>
+    <AssociationLine Name="OpcionesCondicion" Type="Gnecco.Sigma.Core.Shared.Opcion">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.357" Y="-0.312" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="OpcionesInternas" Type="Gnecco.Sigma.Core.Shared.Opcion" FixedFromPoint="true">
+      <Path>
+        <Point X="13" Y="5.349" />
+        <Point X="17.75" Y="5.349" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.338" Y="0.058" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="OpcionesIntervaloKm" Type="Gnecco.Sigma.Core.Shared.Opcion" FixedFromPoint="true">
+      <Path>
+        <Point X="13" Y="6.023" />
+        <Point X="17.75" Y="6.023" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.89" Y="0.06" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>ACAABQACAAAQAAAAAAAAAAKAAAIEAIQBEAAAAAAACAA=</HashCode>
+      <FileName>InformesInspeccion\Volkswagen\Entidades\DetalleInformeInspeccionVolkswagen.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="OpcionesCondicion" />
+      <Property Name="OpcionesInternas" />
+      <Property Name="OpcionesIntervaloKm" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Gnecco.Sigma.Core.Shared.DetalleInformeInspeccion">
+    <Position X="11.5" Y="0.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAIAAAAAAAABAAAAAAAAAAAAAAAIAAA=</HashCode>
+      <FileName>Shared\DetalleInformeInspeccion.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Gnecco.Sigma.Core.Shared.Opcion">
+    <Position X="17.75" Y="5.25" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AACCAAAAAAAAAAAAAAAAAAABIAAAAAAAQAAAAAAIAAA=</HashCode>
+      <FileName>Shared\Opcion.cs</FileName>
+      <NewMemberFileName>Shared\DetalleInformeInspeccion.cs</NewMemberFileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Gnecco.Sigma.Core.Shared.InformeInspeccion">
+    <Position X="1.25" Y="1" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAIAAAAAAAAAAAgAABAAAAAAAAQAAAAAAIAAA=</HashCode>
+      <FileName>Shared\InformeInspeccion.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Gnecco.Sigma.Core.Shared.InformeInspeccionCompleto">
+    <Position X="0.5" Y="5.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAEAAAAAAAAAAAAAAAAAQAAAAAAIAAA=</HashCode>
+      <FileName>Shared\InformeInspeccionCompleto.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Gnecco.Sigma.Core.InformesInspeccion.Volkswagen.Entidades.InformeInspeccionVolkswagenCompleto">
+    <Position X="1.25" Y="9" Width="5.25" />
+    <InheritanceLine Type="Gnecco.Sigma.Core.Shared.InformeInspeccionCompleto" FixedToPoint="true">
+      <Path>
+        <Point X="1.625" Y="7.632" />
+        <Point X="1.625" Y="8.625" />
+        <Point X="1.979" Y="8.625" />
+        <Point X="1.979" Y="9" />
+      </Path>
+    </InheritanceLine>
+    <AssociationLine Name="DetallesInformeInspeccionVolkswagenCompleto" Type="Gnecco.Sigma.Core.InformesInspeccion.Volkswagen.Entidades.DetalleInformeInspeccionVolkswagenCompleto">
+      <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
+        <Position X="-1.453" Y="1.407" Height="0.182" Width="4" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAAAAAAAAAAAECAAAAUAAAAIAAAAAAAAAA=</HashCode>
+      <FileName>InformesInspeccion\Volkswagen\Entidades\InformeInspeccionVolkswagenCompleto.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="DetallesInformeInspeccionVolkswagenCompleto" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Gnecco.Sigma.Core.InformesInspeccion.Volkswagen.Entidades.DetalleInformeInspeccionVolkswagenCompleto">
+    <Position X="5.25" Y="14" Width="4.5" />
+    <AssociationLine Name="DetalleInformeInspeccionVolkswagen" Type="Gnecco.Sigma.Core.InformesInspeccion.Volkswagen.Entidades.DetalleInformeInspeccionVolkswagen">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.744" Y="-2.365" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>InformesInspeccion\Volkswagen\Entidades\DetalleInformeInspeccionVolkswagenCompleto.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="DetalleInformeInspeccionVolkswagen" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Gnecco.Sigma.Core.Shared.ValorOpcion">
+    <Position X="14.25" Y="9.25" Width="3.75" />
+    <AssociationLine Name="Opcion" Type="Gnecco.Sigma.Core.Shared.Opcion" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="18" Y="10.625" />
+        <Point X="20.062" Y="10.625" />
+        <Point X="20.062" Y="7.767" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAIQAACAAEAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Shared\ValorOpcion.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Opcion" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Gnecco.Sigma.Core.Shared.DetalleInformeInspeccionCompleto">
+    <Position X="12" Y="14" Width="3.25" />
+    <AssociationLine Name="Valores" Type="Gnecco.Sigma.Core.Shared.ValorOpcion" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="15.25" Y="14.562" />
+        <Point X="15.625" Y="14.562" />
+        <Point X="15.625" Y="11.757" />
+        <Point X="12.937" Y="11.757" />
+        <Point X="12.937" Y="10.316" />
+        <Point X="14.25" Y="10.316" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAACIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Shared\DetalleInformeInspeccionCompleto.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Valores" />
+    </ShowAsCollectionAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F2565243-D88F-46F0-90C7-16AA5AD723D7}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Gnecco.Sigma.Core</RootNamespace>
+    <AssemblyName>Gnecco.Sigma.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="InformesInspeccion\Ford\Entidades\DetalleGrupoArticuloMantenimiento.cs" />
+    <Compile Include="InformesInspeccion\Ford\Entidades\DetalleGrupoDesgasteFreno.cs" />
+    <Compile Include="InformesInspeccion\Ford\Entidades\DetalleGrupoDesgasteLlanta.cs" />
+    <Compile Include="InformesInspeccion\Ford\Entidades\DetalleGrupoSistemaComponente.cs" />
+    <Compile Include="InformesInspeccion\Ford\Entidades\DetalleInformeInspeccionFordCompleto.cs" />
+    <Compile Include="InformesInspeccion\Ford\Entidades\GrupoArticuloMantenimiento.cs" />
+    <Compile Include="InformesInspeccion\Ford\Entidades\GrupoDesgasteFreno.cs" />
+    <Compile Include="InformesInspeccion\Ford\Entidades\GrupoDesgasteLlanta.cs" />
+    <Compile Include="InformesInspeccion\Ford\Entidades\GrupoSistemaComponente.cs" />
+    <Compile Include="InformesInspeccion\Ford\Entidades\InformeInspeccionFordCompleto.cs" />
+    <Compile Include="InformesInspeccion\Ford\Entidades\SubGrupoDesgasteFreno.cs" />
+    <Compile Include="InformesInspeccion\Ford\Entidades\SubGrupoSistemaComponente.cs" />
+    <Compile Include="InformesInspeccion\Ford\Repositorios\IInformeInspeccionFordCompletoRepositorio.cs" />
+    <Compile Include="InformesInspeccion\Ford\Repositorios\IInformeInspeccionFordRepositorio.cs" />
+    <Compile Include="InformesInspeccion\Ford\Static\TipoGrupoInformeInspeccionFord.cs" />
+    <Compile Include="InformesInspeccion\Ford\ObjetosValor\InformacionVehiculoFord.cs" />
+    <Compile Include="InformesInspeccion\Ford\ObjetosValor\ClienteFord.cs" />
+    <Compile Include="InformesInspeccion\Ford\Entidades\InformeInspeccionFord.cs" />
+    <Compile Include="InformesInspeccion\Ford\Static\TipoOpcionFord.cs" />
+    <Compile Include="InformesInspeccion\Nissan\Entidades\DetalleInformeInspeccionNissan.cs" />
+    <Compile Include="InformesInspeccion\Nissan\Entidades\DetalleInformeInspeccionNissanCompleto.cs" />
+    <Compile Include="InformesInspeccion\Nissan\Entidades\GrupoInformeInspeccionNissan.cs" />
+    <Compile Include="InformesInspeccion\Nissan\Entidades\GrupoInformeInspeccionNissanCompleto.cs" />
+    <Compile Include="InformesInspeccion\Nissan\Entidades\InformeInspeccionNissan.cs" />
+    <Compile Include="InformesInspeccion\Nissan\Entidades\InformeInspeccionNissanCompleto.cs" />
+    <Compile Include="InformesInspeccion\Nissan\Repositorios\IInformeInspeccionNissanCompletoRepositorio.cs" />
+    <Compile Include="InformesInspeccion\Nissan\Repositorios\IInformeInspeccionNissanRepositorio.cs" />
+    <Compile Include="InformesInspeccion\Volkswagen\Entidades\DetalleInformeInspeccionVolkswagenCompleto.cs" />
+    <Compile Include="InformesInspeccion\Volkswagen\Entidades\InformeInspeccionVolkswagenCompleto.cs" />
+    <Compile Include="InformesInspeccion\Volkswagen\Entidades\DetalleInformeInspeccionVolkswagen.cs" />
+    <Compile Include="InformesInspeccion\Volkswagen\Entidades\InformeInspeccionVolkswagen.cs" />
+    <Compile Include="InformesInspeccion\Volkswagen\Repositorios\IInformeInspeccionVolkswagenCompletoRepositorio.cs" />
+    <Compile Include="InformesInspeccion\Volkswagen\Repositorios\IInformeInspeccionVolkswagenRepositorio.cs" />
+    <Compile Include="Inventario\CoordenadasInventario.cs" />
+    <Compile Include="Inventario\InventarioFoto.cs" />
+    <Compile Include="Inventario\InventarioVehiculo.cs" />
+    <Compile Include="Inventario\Repositorios\IInventarioRepositorio.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Shared\DetalleInformeInspeccion.cs" />
+    <Compile Include="Shared\DetalleInformeInspeccionCompleto.cs" />
+    <Compile Include="Shared\Estaticos\EstadoEntidad.cs" />
+    <Compile Include="Shared\GrupoInformeInspeccion.cs" />
+    <Compile Include="Shared\IEntidad.cs" />
+    <Compile Include="Shared\InformeInspeccion.cs" />
+    <Compile Include="Shared\InformeInspeccionCompleto.cs" />
+    <Compile Include="Shared\Opcion.cs" />
+    <Compile Include="Shared\SAP\ViewSap.cs" />
+    <Compile Include="Shared\Usuario.cs" />
+    <Compile Include="Shared\ValorOpcion.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="InformesInspeccion\Objetos Valor\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="InformesInspeccion\Ford\Entidades\DiagramaClases.cd" />
+    <None Include="InformesInspeccion\Nissan\Entidades\DiagramaClases.cd" />
+    <None Include="InformesInspeccion\Volkswagen\Entidades\DiagramaClases.cd" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

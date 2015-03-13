@@ -1,0 +1,236 @@
+﻿@model Gnecco.Sigma.Web.ViewModels.InformesInspeccion.Nissan.InformeInspeccionCompletoNissanGetViewModel
+@{
+    Layout = null;
+    ViewBag.Title = "ReporteNissan";
+}
+<link href="~/Content/Vendor/bootstrap.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="~/Content/Vendor/font-awesome.min.css">
+<style>
+    .azul {
+        background: #2980b9;
+        color: #ffffff;
+    }
+
+    .ancho-medio {
+        width: 400px;
+    }
+
+    .padding {
+        padding: 5px;
+    }
+
+    .table {
+        font-size: 0.9em;
+    }
+
+    .naranja {
+        background: #f39c12;
+        color: #ffffff;
+    }
+
+    .amarillo {
+        background: #f1c40f;
+        color: #ffffff;
+    }
+
+    .verde {
+        background: #27ae60;
+        color: #ffffff;
+    }
+
+    .rojo {
+        background: #e74c3c;
+        color: #ffffff;
+    }
+
+    .reparado {
+        width: 30px;
+    }
+
+    .atencion {
+        width: 20px;
+    }
+
+    body {
+        font-size: 12px;
+    }
+</style>
+<div class="text-center" style="margin-bottom:1em">
+    <h2>HOJA INFORMATIVA MANTENIMIENTO PERIODICO</h2>
+    <hr />
+</div>
+<div class="row">
+    <div class="col-xs-12">
+        <div class="col-xs-6">
+            <label>Mantenimiento</label>
+            <input type="checkbox"> Preventivo
+            <input type="checkbox"> Correctivo
+            <p>@Model.Kms</p>
+        </div>
+        <div class="col-xs-6">
+            <div class="col-xs-4">
+                <label>Numero de OT:</label>
+                <p>@Model.NumeroOT</p>
+            </div>
+            <div class="col-xs-2">
+                <label>Fecha:</label>
+                <p>@Model.Fecha</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12">
+        <div class="col-xs-6">
+            <label>Cliente</label>
+            <p>@Model.Cliente</p>
+        </div>
+        <div class="col-xs-6">
+            <div class="col-xs-4">
+                <label>Tecnico:</label>
+                <p>@Model.Tecnico</p>
+            </div>
+            <div class="col-xs-4">
+                <label>Placa:</label>
+                <p>@Model.Placa</p>
+            </div>
+        </div>
+    </div>
+</div>
+<hr />
+<div class="row">
+@foreach (var grupo in Model.Grupos)
+{ 
+    <div class="col-xs-6">
+        <div class="col-xs-12 azul">
+            <h5>@grupo.Descripcion</h5>
+        </div>
+        <div class="col-xs-12" style="padding:0">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th class="verde">REVISADO OK</th>
+                        <th class="amarillo">REQUIERE ATENCION EN PROXIMA VISITA</th>
+                        <th class="rojo">REQUIERE ATENCION INMEDIATA</th>
+                        <th class="text-center reparado" colspan="1" style="width:450px; vertical-align:middle">
+                            DESCRIPCION
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var detalle in grupo.Detalles)
+                    {
+                        <tr>
+                            @foreach (var opcion in detalle.OpcionesCheckRevision)
+                            {
+                                @Html.Partial("_ValorOpcion", new { Valor = opcion.Valor })
+                            }
+                            <td>@detalle.Descripcion</td>
+                            @foreach (var opcion in detalle.OpcionesCheckRevision)
+                            {
+                                
+                            }
+                        </tr>
+                    }
+                 
+                </tbody>
+             
+            </table>
+        </div>
+    </div>
+}
+</div>
+<div class="row">
+    @foreach (var grupo in Model.GruposEspeciales)
+    {
+        <div class="col-xs-6">
+            <div class="col-xs-12 azul">
+                <h5>@grupo.Descripcion</h5>
+            </div>
+            <div class="col-xs-12" style="padding:0">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th class="verde">MAS DE 4 MM</th>
+                            <th class="amarillo">DE 2 MM a 4 MM</th>
+                            <th class="rojo">DE 2MM A MENOS</th>
+                            <th class="text-center reparado" colspan="1" rowspan="2">
+                                DESCRIPCION
+                            </th>
+                            <th class="text-center reparado" colspan="1" rowspan="2">
+                                VALOR
+                            </th>
+                            <th class="text-center reparado" colspan="1" rowspan="2">
+                                UNIDAD
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var detalle in grupo.Detalles)
+                        {
+                            <tr>
+                                @foreach (var opcion in detalle.OpcionesCheckRevision)
+                                {
+                                    @Html.Partial("_ValorOpcion", new { Valor = opcion.Valor })
+                                }
+                                <td>@detalle.Descripcion</td>
+                                @foreach (var opcion in detalle.OpcionesMedicion)
+                                {
+                                    <td>@opcion.Valor</td>
+                                    <td>@opcion.Descripcion</td>
+                                }
+                            </tr>
+                        }
+
+                    </tbody>
+
+                </table>
+            </div>
+        </div>
+    }
+</div>
+<div class="row">
+    @foreach (var grupo in Model.GruposCalidad)
+    {
+        <div class="col-xs-6">
+            <div class="col-xs-12 azul">
+                <h5>@grupo.Descripcion</h5>
+            </div>
+            <div class="col-xs-12" style="padding:0">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th colspan="1">
+                                MANTENIMIENTO
+                            </th>
+                            <th class="text-center reparado" colspan="1">
+                                DESCRIPCION
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var detalle in grupo.Detalles)
+                        {
+                            <tr>
+                                @foreach (var opcion in detalle.OpcionesCheckCalidad)
+                                {
+                                    @Html.Partial("_ValorOpcion", new { Valor = opcion.Valor })
+                                }
+                                <td style="width:500px">@detalle.Descripcion</td>
+                            </tr>
+                        }
+
+                    </tbody>
+
+                </table>
+            </div>
+        </div>
+    }
+</div>
+<div class="row">
+    <div class="col-xs-12">
+        <label>RESULTADOS DEL MANTENIMIENTO PERIODICO</label>
+        <label>(REEMPLAZO RECOMENDADO PARA LA PROXIMA VISITA)</label>
+        <p>@Model.ResultadosMantenimiento</p>
+    </div>
+</div>

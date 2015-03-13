@@ -1,0 +1,30 @@
+﻿@{
+    ViewBag.Title = "Ford";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div ng-app="informesInspeccion.ford">
+
+    <ui-view>
+
+    </ui-view>
+<div>
+
+    @section scripts{
+    <script type="text/javascript" src="~/Scripts/App/Shared/Api/ford.api.js"></script>
+
+    <script src="~/Scripts/App/Shared/Services/Mensajes.srv.js"></script>
+    <script src="~/Scripts/App/Shared/Services/Loader.srv.js"></script>
+    <script type="text/javascript" src="~/Scripts/App/InformesInspeccion/Ford/app.js"></script>
+
+    <script type="text/javascript" src="~/Scripts/App/InformesInspeccion/Ford/Controllers/index.ctrl.js"></script>
+    <script type="text/javascript" src="~/Scripts/App/InformesInspeccion/Ford/Controllers/nuevo.ctrl.js"></script>
+    <script type="text/javascript" src="~/Scripts/App/InformesInspeccion/Ford/Controllers/completar.ctrl.js"></script>
+    <script type="text/javascript" src="~/Scripts/App/InformesInspeccion/Ford/Controllers/ver.ctrl.js"></script>
+    <script type="text/javascript" src="~/Scripts/App/InformesInspeccion/Ford/Controllers/verCompletados.ctrl.js"></script>
+
+
+    <script src="~/Scripts/App/InformesInspeccion/Ford/Directives/formulario.drv.js"></script>
+
+    }
+

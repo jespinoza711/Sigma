@@ -1,0 +1,54 @@
+<div class="container">
+    <div class="row" style="margin-top:5em">
+        <div class="col-md-12 volkswagen-maestro">
+            <button class="btn btn-success margen-2x" ng-click="vm.index()" style="margin-bottom:1em">
+                <i class="fa fa-arrow-left"></i> Volver
+            </button>
+            <div class="panel panel-primary ">
+                <div class="panel-heading ">
+                    <h2 class="panel-title">Informe Maestro Volkswagen</h3>
+                </div>
+                <div class="panel-body">
+                    <form ng-submit="vm.guardar()">
+                        <!--<span class="pull-right" style="margin-bottom:1em">
+
+                            <button class="btn btnGuardar">
+                                Guardar Formato <i class="fa fa-save"></i>
+                            </button>
+                            <button class="btn btnCancelar" ng-click="vm.index()">
+                                Cancelar <i class="fa fa-arrow-left"></i>
+                            </button>
+                        </span>-->
+                        <tabla-informe-inspeccion model="vm.model"
+                                                  esta-modo-edicion="vm.estaModoEdicion"
+                                                  eliminar-detalle="vm.eliminarDetalle">
+                        </tabla-informe-inspeccion>
+                        <!--<div class="col-md-12" style="margin-bottom:1em">
+                            <button type="button" class="btn btn-success pull-right" data-toggle="modal" data-placement="top" data-target="#modalAgregarFila" title="Agregar Fila" ng-click="vm.agregarFila()">
+                                Agregar Fila <i class="fa fa-plus-circle"></i>
+                            </button>
+                        </div>-->
+                        <div class="col-md-12">
+                            <textarea class="form-control " rows="3" id="textArea" style="resize:none" ng-disabled="vm.estaModoEdicion" ng-model="vm.model.Comentarios"></textarea>
+                            <span class="help-block">Comentarios</span>
+                        </div>
+                        <div class="col-md-4 text-center">
+                            <!--<span class="" name="fechaCreacion">12/12/2014</span>
+                            <p>Fecha</p>-->
+                        </div>
+                        <div class="col-md-4 text-center">
+                            <input class="form-control " name="nombreTecnico" type="text" ng-model="vm.model.NombreTecnico" ng-disabled="vm.estaModoEdicion">
+                            <p>Nombre del Técnico</p>
+                        </div>
+                        <div class="col-md-4 text-center">
+                            <!--<span class="">_______________________________</span>
+                            <p>VoBo Jefe de Taller</p>-->
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

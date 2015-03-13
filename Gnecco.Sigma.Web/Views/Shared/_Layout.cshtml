@@ -1,0 +1,150 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Sistema de Gestión y Mantenimiento de Autos - Gnecco & Cia</title>
+
+    <link rel="stylesheet" href="~/Content/Vendor/bootstrap.min.css">
+    <link rel="stylesheet" href="~/Content/estilos.css">
+    <link rel="stylesheet" href="~/Content/Vendor/font-awesome.min.css">
+    <link rel="stylesheet" href="~/Content/Vendor/sweet-alert.css">
+    <link rel="stylesheet" href="~/Content/Vendor/please-wait.css">
+    <link rel="stylesheet" href="~/Content/Vendor/spinkit.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/">
+                        <img src="~/Images/logo-sistema.png" style="display:inline-block; width:30%">
+                        Sigma
+                    </a>
+                </div>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul id="menuPrincipal" class="menuPrincipal nav navbar-nav">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Diseñador <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="/InformesInspeccion/Volkswagen/">Maestro Volkswagen</a></li>
+                                <li><a href="/InformesInspeccion/Nissan/">Maestro Nissan</a></li>
+                                <li><a href="/InformesInspeccion/Ford/">Maestro Ford</a></li>
+                            </ul>
+                        </li>
+                        @*<li><a href="#">Registros de Mantenimiento</a></li>*@
+                        <li><a href="/InventarioVehiculos/">Inventario de Vehiculos</a></li>
+                    </ul>
+                    <ul class="menuLogin nav navbar-nav navbar-right">
+                        <li id="iniciar"><a href="#" onclick="$('#modalLogin').modal('show');">Iniciar Sesión</a></li>
+                        <li id="cerrar"><a href="#" onclick="borrarcookie()">Cerrar Sesión</a></li>
+                        @*<li id="cerrar"><a href="/api/Logout/">Cerrar Sesión</a></li>*@
+                    </ul>
+                    <div id="modalLogin" class="modal fade">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title">Complete sus datos para ingresar</h4>
+                                </div>
+                                <form name="form1" id="formLogin" method="post" action="/api/Usuario/" enctype="multipart/form-data">
+                                    <div class="modal-body">
+
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" style="width:50%" name="NombreUsuario" id="NombreUsuario" placeholder="Nombre de usuario" />
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="password" class="form-control" style="width:50%" name="Pass" id="Pass" placeholder="Contraseña" />
+                                        </div>
+
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                                        <button type="submit" class="btn btn-primary">Ingresar</button>
+                                    </div>
+                                </form>
+                            </div><!-- /.modal-content -->
+                        </div><!-- /.modal-dialog -->
+                    </div><!-- /.modal -->
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
+    </header><!-- /header -->
+    <div class="container" style="padding:60px">
+        @RenderBody()
+    </div>
+    <script src="~/Scripts/Vendor/jquery-1.11.1.min.js"></script>
+    <script src="~/Scripts/Vendor/bootstrap.min.js"></script>
+    <script src="~/Scripts/Vendor/cookielogin.js"></script>
+
+    <script type="text/javascript" src="~/Scripts/Vendor/angular.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/Vendor/angular-ui-router.min.js"></script>
+
+    <!-- Remover en produccion -->
+    <script type="text/javascript" src="~/Scripts/Vendor/angular-mocks.js"></script>
+    <!-- Fin -->
+    @RenderSection("scripts", required: false)
+
+    <script src="/Scripts/Vendor/sweet-alert.min.js"></script>
+    <script src="/Scripts/Vendor/please-wait.min.js"></script>
+    <script>
+        //$("#iniciar").css("display", "block");
+        //$("#cerrar").css("display", "none");
+        //$("#menuPrincipal").css("display", "none");
+        //debugger;
+        getCookie("_nombreCompleto");
+        getCookie("_nombreUsuario");
+        getCookie("_perfil");
+
+        var nombre = getCookie("_nombreUsuario");
+        var perfil = getCookie("_perfil");
+        var nomcompleto = getCookie("_nombreCompleto");
+        var acceso = true;
+
+        if (nombre == "" && perfil == "") {
+            $("#iniciar").css("display", "block");
+            $("#cerrar").css("display", "none");
+            $("#menuPrincipal").css("display", "none");
+            acceso = false;
+        } else {
+            if (perfil == "Administrador") {
+                acceso = true;
+                $("#iniciar").css("display", "none");
+                $("#cerrar").css("display", "block");
+                $("#menuPrincipal").css("display", "block");
+            } else if (perfil == "Asesor") {
+                //acceso = false;
+                //$("#iniciar").css("display", "none");
+                //$("#cerrar").css("display", "block");
+                //$("#menuPrincipal").css("display", "block");
+            } else if (perfil == "Tecnico") {
+                //acceso = false;
+                //$("#iniciar").css("display", "none");
+                //$("#cerrar").css("display", "block");
+                //$("#menuPrincipal").css("display", "block");
+            }
+        }
+
+        function borrarcookie() {            
+            deleteCookie("_nombreCompleto");
+            deleteCookie("_nombreUsuario");
+            deleteCookie("_perfil");
+
+            $("#iniciar").css("display", "block");
+            $("#cerrar").css("display", "none");
+            $("#menuPrincipal").css("display", "none");
+            
+            perfil = "";
+            nombre = "";
+            acceso = false;
+        }
+    </script>
+
+</body>
+</html>

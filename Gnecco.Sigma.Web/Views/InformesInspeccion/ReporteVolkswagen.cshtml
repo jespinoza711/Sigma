@@ -1,0 +1,145 @@
+﻿@model Gnecco.Sigma.Web.ViewModels.InformesInspeccion.Volkswagen.InformeInspeccionCompletoGetViewModel
+@{
+    Layout = null;
+    ViewBag.Title = "ReporteVolkswagen";
+}
+<link href="~/Content/Vendor/bootstrap.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="~/Content/Vendor/font-awesome.min.css">
+<style>
+    .azul {
+        background: #2980b9;
+        color: #ffffff;
+    }
+
+    .ancho-medio {
+        width: 400px;
+    }
+
+    .padding {
+        padding: 5px;
+    }
+
+    .table {
+        font-size: 0.9em;
+    }
+
+    .naranja {
+        background: #f39c12;
+        color: #ffffff;
+    }
+
+    .amarillo {
+        background: #f1c40f;
+        color: #ffffff;
+    }
+
+    .verde {
+        background: #27ae60;
+        color: #ffffff;
+    }
+
+    .rojo {
+        background: #e74c3c;
+        color: #ffffff;
+    }
+
+    .reparado {
+        width: 30px;
+    }
+
+    .atencion {
+        width: 20px;
+    }
+
+    body {
+        font-size: 12px;
+    }
+</style>
+<div class="text-center" style="margin-bottom:1em">
+    <h2>Servicio de Inspeccion Volkswagen Vehiculos </h2>
+</div>
+<hr />
+<div class="row">
+    <div class="col-xs-12">
+        <table class="table table-bordered text-center">
+            <thead>
+                <tr>
+                    <th rowspan="2" class="text-center azul">INTERVALO EN KM</th>
+                    <th class="tex-center azul">ORDEN</th>
+                    <th class="tex-center azul">PLACA</th>
+                    <th class="tex-center azul">VIN</th>
+                    <th class="tex-center azul">KM</th>
+                    <th class="tex-center azul">LETRA DIST. MOTOR</th>
+                    <th class="text-center" colspan="3" rowspan="3"><img src="/Images/volkswagen-logo.png" style="width:100px; height: 80px"></th>
+                </tr>
+                <tr>
+                    <th>@Model.Orden</th>
+                    <th>@Model.Placa</th>
+                    <th>@Model.Vin</th>
+                    <th>@Model.Km</th>
+                    <th>@Model.LetraDistribucionMotor</th>
+                </tr>
+                <tr>
+                    <th class="text-center" rowspan="2">@Model.IntervaloKilometros</th>
+                    <th rowspan="2" colspan="5" style="vertical-align:middle">@Model.Descripcion</th>
+                </tr>
+                <tr>
+                    <th class="azul">OK</th>
+                    <th class="azul">No Ok</th>
+                    <th class="azul">Corregido</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var detalle in @Model.Detalles)
+                {
+                    <tr>
+                        <td>
+                            @foreach (var opcion in detalle.OpcionesIntervaloKm)
+                            {
+                                <p>@opcion.Valor</p>
+                            }
+                        </td>
+                        <td colspan="3" style="width:500px">
+                            @detalle.Descripcion
+                        </td>
+                        <td colspan="2">
+                            <div>
+                                <table class="table table-bordered" style="width:80px">
+                                    @foreach (var opcion in detalle.OpcionesInternas)
+                                    {
+                                        <thead>
+                                            <tr>
+                                                <th class="azul" style="max-width:10px">@opcion.Descripcion</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td style="width:10%">@opcion.Valor</td>
+                                            </tr>
+                                        </tbody>
+                                    }
+                                </table>
+                            </div>
+                        </td>
+                        
+                            @foreach (var opcion in detalle.OpcionesCondicion)
+                            {
+                                @Html.Partial("_ValorOpcion", new { Valor = opcion.Valor })
+                            }
+                    </tr>
+                }
+            </tbody>
+
+        </table>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12">
+        <label>COMENTARIOS:</label>
+        <p>@Model.Comentarios</p>
+    </div>
+    <div class="col-xs-12">
+        <label>NOMBRE DEL TECNICO</label>
+        <p>@Model.NombreTecnico</p>
+    </div>
+</div>

@@ -1,0 +1,492 @@
+﻿
+<div class="row">
+    <div class="col-md-6">
+        <label class="help-block">Nombre Informe Inspeccion</label>
+        <input ng-disabled="!vm.EstaEdicion" class="form-control input-sm" ng-model="vm.Model.NombreInformeInspeccion" />
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label class="help-block">Descripcion Informe Inspeccion</label>
+            <input ng-disabled="!vm.EstaEdicion" class="form-control input-sm" ng-model="vm.Model.DescripcionInformeInspeccion" />
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-4">
+        <div class="form-group">
+            <label class="help-block">Nombre Cliente:</label>   
+            <input type="text" name="NombreCliente" ng-model="vm.Model.CLIENTE" ng-required="!vm.EstaEdicion" ng-class="{errorValidacion : formularioFord.NombreCliente.$valid }" class="form-control" ng-disabled="vm.EstaEdicion">
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="form-group">
+            <label class="help-block">Correo Electrónico:</label>
+            <input type="text" ng-model="vm.Model.EMAIL" ng-required="!vm.EstaEdicion" class="form-control" ng-disabled="vm.EstaEdicion">
+        </div>
+    </div>
+    <div class="col-md-2">
+        <div class="form-group">
+            <label class="help-block">Fecha:</label>
+            <input type="text" ng-model="vm.Model.FECHAINGRESO" class="form-control" ng-required="!vm.EstaEdicion" placeholder="__/__/__" ng-disabled="vm.EstaEdicion">
+        </div>
+    </div>
+    <div class="col-md-2">
+        <div class="form-group">
+            <label class="help-block">RO/Tag:</label>
+            <input type="text" ng-model="vm.Model.OT" class="form-control" ng-required="!vm.EstaEdicion" ng-disabled="vm.EstaEdicion" onclick="$('#modalOT').modal('show');">
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-2">
+        <div class="form-group">
+            <label class="help-block">Mes de Inspeccion Estatal:</label>
+            <input type="text" ng-model="vm.Model.MESINSPECCIONESTATAL" ng-required="!vm.EstaEdicion" class="form-control" ng-disabled="vm.EstaEdicion">
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="form-group">
+            <label class="help-block">Marca:</label>
+            <input type="text" ng-model="vm.Model.Marca" ng-required="!vm.EstaEdicion" class="form-control" ng-disabled="vm.EstaEdicion">
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="form-group">
+            <label class="help-block">Modelo:</label>
+            <input type="text" ng-model="vm.Model.MODELO" ng-required="!vm.EstaEdicion" class="form-control" ng-disabled="vm.EstaEdicion">
+        </div>
+    </div>
+    <div class="col-md-1">
+        <div class="form-group">
+            <label class="help-block">Año:</label>
+            <input type="text" ng-model="vm.Model.ANIO" ng-required="!vm.EstaEdicion" class="form-control" ng-disabled="vm.EstaEdicion">
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="form-group">
+            <label class="help-block">Millaje:</label>
+            <input type="text" ng-model="vm.Model.MILLAJE" ng-required="!vm.EstaEdicion" class="form-control" ng-disabled="vm.EstaEdicion">
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-3">
+        <div class="form-group">
+            <label class="help-block">VIN #:</label>
+            <input type="text" ng-model="vm.Model.VIN" ng-required="!vm.EstaEdicion" class="form-control" ng-disabled="vm.EstaEdicion">
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="form-group">
+            <label class="help-block">Placa:</label>
+            <input type="text" ng-model="vm.Model.PLACA" ng-required="!vm.EstaEdicion" class="form-control" ng-disabled="vm.EstaEdicion">
+        </div>
+    </div>
+</div>
+<hr />
+<div class="row">
+    <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active">
+            <a data-target="#ArticulosMantenimiento" aria-controls="ArticulosMantenimiento" class="pointer" role="tab" data-toggle="tab">
+                Articulos de Mantenimiento
+            </a>
+        </li>
+        <li role="presentation">
+            <a data-target="#SistemasComponentes" aria-controls="SistemasComponentes" class="pointer" role="tab" data-toggle="tab">
+                Sistemas y Componentes
+            </a>
+        </li>
+        <li role="presentation">
+            <a data-target="#DesgasteLlanta" aria-controls="DesgasteLlanta" class="pointer" role="tab" data-toggle="tab">
+                Desgaste Llanta
+            </a>
+        </li>
+    </ul>
+
+    <!-- Tab panes -->
+    <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="ArticulosMantenimiento">
+            <div class="col-md-12" style="min-height: 500px">
+                <div class="col-md-12">
+                    <h4 class="col-md-10" style="margin-top: 20px">
+                        Articulos de mantenimiento que necesitan revision en esta visita
+                    </h4>
+                    <button ng-if="vm.EstaEdicion" type="button" ng-click="GrupoArticuloMantenimiento.AgregarDetalle()" class="btn btn-success pull-right" style="margin: 1em">
+                        Agregar Articulo <i class="fa fa-plus-circle"></i>
+                    </button>
+                </div>
+                <div class="col-md-12" style="margin-top:20px">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th class="col-md-1">
+                                    Vencido
+                                </th>
+                                <th>
+                                    Descripcion Articulo Mantenimiento
+                                </th>
+                                <th class="col-md-1">
+                                    Reparado
+                                </th>
+                                <th class="col-md-1 text-center" ng-if="vm.EstaEdicion">
+                                    Accion
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="Detalle in vm.Model.GrupoArticuloMantenimiento.Detalle">
+                                <td class="text-center">
+                                    <div class="form-group" ng-repeat="OpcionDesgaste in Detalle.OpcionesDesgaste">
+                                        <input type="checkbox" ng-model="OpcionDesgaste.Valor" ng-checked="OpcionDesgaste.Valor" class="form-control" ng-disabled="vm.EstaEdicion" />
+                                    </div>
+                                </td>
+                                <td>
+                                    <textarea class="form-control input-sm" ng-model="Detalle.Descripcion" ng-disabled="!vm.EstaEdicion"></textarea>
+                                </td>
+                                <td class="text-center">
+                                    <div class="form-group" ng-repeat="OpcionReparacion in Detalle.OpcionesReparacion">
+                                        <input type="checkbox" ng-model="OpcionReparacion.Valor" ng-checked="OpcionReparacion.Valor" class="form-control" ng-disabled="vm.EstaEdicion" />
+                                    </div>
+                                </td>
+                                <td class="text-center" ng-if="vm.EstaEdicion">
+                                    <a class="btn btnAnular" ng-click="GrupoArticuloMantenimiento.EliminarDetalle($index,Detalle)"><i class="fa fa-remove"></i></a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div ng-if="vm.Model.GrupoArticuloMantenimiento.Detalle.length == 0" class="col-md-12 text-center"><small>No tiene Registros!</small></div>
+                </div>
+            </div>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="SistemasComponentes">
+            <div class="col-md-12" style="min-height: 500px">
+                <div class="col-md-12" style="margin-top: 20px">
+                    <div class="col-md-7">
+                        <h4 class="col-md-9">
+                            Revisar los siguientes Sistemas/Componentes
+                        </h4>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="input-group" ng-show="vm.EstaEdicion">
+                            <input type="text" class="form-control" ng-model="NombreSubGrupoSistemaComponente" placeholder="Nombre Nuevo Sistema Componente">
+                            <span class="input-group-btn">
+                                <button class="btn btn-success" type="button" ng-click="GrupoSistemaComponente.AgregarSubGrupo(NombreSubGrupoSistemaComponente)">Agregar <i class="fa fa-plus-circle"></i></button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12" style="margin:15px 0 30px 0">
+                    <div class="col-md-4 text-center">
+                        <div class="legendaRevisadoOk"></div>
+                        <strong>Verificado y Aprobado en este momento</strong>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <div class="legendaAtencionProxima"></div>
+                        <strong>Puede requerir futura atención</strong>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <div class="legendaAtencionInmediata"></div>
+                        <strong>Requiere atención inmediata</strong>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true" ng-repeat="SubGrupo in vm.Model.GrupoSistemaComponente.SubGrupos">
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="headingOne" style="height:50px">
+                                <a class="pointer pull-left" data-toggle="collapse" data-parent="#accordion" data-target="#SubGrupo_SistemaComponente_{{$index}}" aria-expanded="true" aria-controls="collapseOne">
+                                    <i class="fa fa-chevron-down flechaAbajo"></i>
+                                </a>
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control input-sm" ng-disabled="!vm.EstaEdicion" ng-model="SubGrupo.Descripcion" />
+                                </div>
+                                <button type="button" ng-if="vm.EstaEdicion" style="margin-left:5px" class="btn btn-sm btn-danger pull-right" ng-click="GrupoSistemaComponente.EliminarSubGrupo($index,SubGrupo)">
+                                    <i class="fa fa-remove"></i>
+                                </button>
+                                <button type="button" ng-show="vm.EstaEdicion" class="btn btn-sm btn-success pull-right" ng-click="GrupoSistemaComponente.AgregarDetalle(SubGrupo)">
+                                    Agregar Detalle <i class="fa fa-plus-circle"></i>
+                                </button>
+                            </div>
+                            <div id="SubGrupo_SistemaComponente_{{$index}}" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                                <div class="panel-body">
+                                    <div class="col-md-12">
+                                        <table class="table table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th class="col-md-2" colspan="3">
+                                                    </th>
+                                                    <th>
+                                                        Descripcion Detalle
+                                                    </th>
+                                                    <th class="col-md-1">
+                                                        Reparado
+                                                    </th>
+                                                    <th class="col-md-1" ng-if="vm.EstaEdicion">
+                                                        Acción
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr ng-repeat="Detalle in SubGrupo.Detalle">
+                                                    <td class="text-center" ng-class="{ revisadoOk : $index == 0,atencionProxima : $index == 1, atencionInmediata : $index == 2}"
+                                                        ng-repeat="OpcionAtencion in Detalle.OpcionesAtencion">
+                                                        <div class="form-group">
+                                                            <input type="checkbox" ng-model="OpcionAtencion.Valor" ng-checked="OpcionAtencion.Valor" class="form-control" ng-disabled="vm.EstaEdicion" />
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <textarea ng-disabled="!vm.EstaEdicion" class="form-control input-sm" ng-model="Detalle.Descripcion"></textarea>
+                                                    </td>
+                                                    <td class="text-center" ng-repeat="OpcionReparacion in Detalle.OpcionesReparacion">
+                                                        <div class="form-group">
+                                                            <input type="checkbox" ng-model="OpcionReparacion.Valor" ng-checked="OpcionReparacion.Valor" class="form-control" ng-disabled="vm.EstaEdicion" />
+                                                        </div>
+                                                    </td>
+                                                    <td class="text-center" ng-if="vm.EstaEdicion">
+                                                        <a class="btn btnAnular" ng-click="GrupoSistemaComponente.EliminarDetalle($index,SubGrupo,Detalle)"><i class="fa fa-remove"></i></a>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <div ng-if="SubGrupo.Detalle.length == 0" class="col-md-12 text-center"><small>No tiene Registros!</small></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div ng-if="vm.Model.GrupoSistemaComponente.SubGrupos.length == 0" class="col-md-12 text-center"><small>No tiene Registros!</small></div>
+                </div>
+            </div>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="DesgasteLlanta">
+            <div class="col-md-4" style="min-height: 500px">
+                <div class="col-md-12">
+                    <h4 class="col-md-6" style="margin-top: 20px">
+                        Desgaste de Llantas
+                    </h4>
+                    <button type="button" class="btn btn-success pull-right" ng-if="vm.EstaEdicion" style="margin: 1em 0" ng-click="GrupoDesgasteLlanta.AgregarDetalle()">
+                        Agregar Detalle <i class="fa fa-plus-circle"></i>
+                    </button>
+                </div>
+                <div class="col-md-12" style="margin-top:20px">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th colspan="2">
+                                    Desgaste de Llantas Indica
+                                </th>
+                                <th class="col-md-1">
+                                    Reparado
+                                </th>
+                                <th class="col-md-1" ng-if="vm.EstaEdicion">
+                                    Acción
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="Detalle in vm.Model.GrupoDesgasteLlanta.Detalle">
+                                <td class="text-center">
+                                    <div class="form-group" ng-repeat="OpcionDesgaste in Detalle.OpcionesDesgaste">
+                                        <input type="checkbox" ng-model="OpcionDesgaste.Valor" ng-checked="OpcionDesgaste.Valor" class="form-control" ng-disabled="vm.EstaEdicion" />
+                                    </div>
+                                </td>
+                                <td>
+                                    <textarea ng-disabled="!vm.EstaEdicion" class="form-control input-sm" ng-model="Detalle.Descripcion"></textarea>
+                                </td>
+                                <td class="text-center">
+                                    <div class="form-group" ng-repeat="OpcionReparacion in Detalle.OpcionesReparacion">
+                                        <input type="checkbox" ng-model="OpcionReparacion.Valor" ng-checked="OpcionReparacion.Valor" class="form-control" ng-disabled="vm.EstaEdicion" />
+                                    </div>
+                                </td>
+                                <td class="text-center" ng-if="vm.EstaEdicion">
+                                    <a class="btn btnAnular" ng-click="GrupoDesgasteLlanta.EliminarDetalle($index,Detalle)"><i class="fa fa-remove"></i></a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div ng-if="vm.Model.GrupoDesgasteLlanta.Detalle.length == 0" class="col-md-12 text-center"><small>No tiene Registros!</small></div>
+                </div>
+            </div>
+            <div class="col-md-8" style="min-height: 500px">
+                <div class="col-md-12" style="margin-top: 20px">
+                    <div class="col-md-6">
+                        <h4 class="col-md-12">
+                            Desgaste de Llantas y Freno
+                        </h4>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="input-group" ng-show="vm.EstaEdicion">
+                            <input type="text" class="form-control" ng-model="NombreSubGrupoDesgasteFreno" placeholder="Nombre Nuevo Grupo">
+                            <span class="input-group-btn">
+                                <button class="btn btn-success" type="button" ng-click="GrupoDesgasteFreno.AgregarSubGrupo()">Agregar <i class="fa fa-plus-circle"></i></button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12" style="margin: 15px 0 30px 0">
+                    <div class="col-md-4 text-center">
+                        <div class="legendaRevisadoOk"></div>
+                        <div class="text-left">
+                            <strong>Banda de Rodamiento : </strong><small>7/32º y más</small><br />
+                            <strong>Bandas de Frenos : </strong><small>Mas de 5mm o 7/32º (disco) o más de 2mm o 3/32º (tambor)</small>
+                        </div>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <div class="legendaAtencionProxima"></div>
+                        <div class="text-left">
+                            <strong>Banda de Rodamiento : </strong><small>de 4/32º a 6/32º</small><br />
+                            <strong>Bandas de Frenos : </strong><small>De 3 a 5mm o de 4/32º (disco) o de 1.01 a 2mm (tambor) o de 202º</small>
+                        </div>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <div class="legendaAtencionInmediata"></div>
+                        <div class="text-left">
+                            <strong>Banda de Rodamiento : </strong><small>3/32º y menos</small><br />
+                            <strong>Bandas de Frenos : </strong><small>Menos de 3mm o 4/32º (disco) o 1mm o 2/32º o menos(tambor)</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true" ng-repeat="SubGrupo in vm.Model.GrupoDesgasteFreno.SubGrupos">
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="headingOne" style="height: 50px">
+                                <a class="pointer pull-left" data-toggle="collapse" data-parent="#accordion" data-target="#SubGrupo_DesgasteFreno_{{$index}}" aria-expanded="true" aria-controls="collapseOne">
+                                    <i class="fa fa-chevron-down flechaAbajo"></i>
+                                </a>
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control input-sm" ng-disabled="!vm.EstaEdicion" ng-model="SubGrupo.Descripcion" />
+                                </div>
+                                <button type="button" ng-if="vm.EstaEdicion" style="margin-left:5px" class="btn btn-sm btn-danger pull-right" ng-click="GrupoDesgasteFreno.EliminarSubGrupo($index,SubGrupo)">
+                                    <i class="fa fa-remove"></i>
+                                </button>
+                                <button type="button" ng-if="vm.EstaEdicion" class="btn btn-sm btn-success pull-right" ng-click="GrupoDesgasteFreno.AgregarDetalle(SubGrupo)">
+                                    Agregar Detalle <i class="fa fa-plus-circle"></i>
+                                </button>
+                            </div>
+                            <div id="SubGrupo_DesgasteFreno_{{$index}}" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                                <div class="panel-body">
+                                    <div class="col-md-12">
+                                        <table class="table table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th class="col-md-2" colspan="3">
+                                                    </th>
+                                                    <th>
+                                                        Descripcion Detalle
+                                                    </th>
+                                                    <th class="col-md-1">
+                                                        Reparado
+                                                    </th>
+                                                    <th class="col-md-1" ng-if="vm.EstaEdicion">
+                                                        Acción
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr ng-repeat="Detalle in SubGrupo.Detalle">
+                                                    <td class="text-center" ng-class="{ revisadoOk : $index == 0,atencionProxima : $index == 1, atencionInmediata : $index == 2}"
+                                                        ng-repeat="OpcionAtencion in Detalle.OpcionesAtencion">
+                                                        <div class="form-group">
+                                                            <input type="checkbox" ng-model="OpcionAtencion.Valor" ng-checked="OpcionAtencion.Valor" class="form-control" ng-disabled="vm.EstaEdicion" />
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <textarea ng-disabled="!vm.EstaEdicion" class="form-control input-sm" ng-model="Detalle.Descripcion"></textarea>
+                                                    </td>
+                                                    <td class="text-center" ng-repeat="OpcionReparacion in Detalle.OpcionesReparacion">
+                                                        <div class="form-group">
+                                                            <input type="checkbox" ng-model="OpcionReparacion.Valor" ng-checked="OpcionReparacion.Valor" class="form-control" ng-disabled="vm.EstaEdicion" />
+                                                        </div>
+                                                    </td>
+                                                    <td class="text-center" ng-if="vm.EstaEdicion">
+                                                        <a class="btn btnAnular" ng-click="GrupoDesgasteFreno.EliminarDetalle($index,SubGrupo,Detalle)"><i class="fa fa-remove"></i></a>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <div ng-if="SubGrupo.Detalle.length == 0" class="col-md-12 text-center"><small>No tiene Registros!</small></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div ng-if="vm.Model.GrupoDesgasteFreno.SubGrupos.length == 0" class="col-md-12 text-center"><small>No tiene Registros!</small></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="form-group">
+            <label class="help-block">Comentarios.</label>
+            <textarea class="form-control" ng-model="vm.Model.Comentarios" ng-required="!vm.EstaEdicion" rows="3" id="textArea" style="resize: none" ng-disabled="vm.EstaEdicion"></textarea>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6 text-center">
+        <div class="form-group">
+            <label class="help-block">Nombre del Técnico</label>
+            <input class="form-control" ng-model="vm.Model.NombreTecnico" ng-required="!vm.EstaEdicion" name="nombreTecnico" type="text" placeholder="Escribe el nombre del Tecnico" ng-disabled="vm.EstaEdicion">
+        </div>
+    </div>
+    <div class="col-md-6 text-center">
+        <div class="form-group">
+            <label class="help-block">Asesor de Servicio</label>
+            <input class="form-control" ng-model="vm.Model.AsesorServicio" ng-required="!vm.EstaEdicion" name="nombreAsesor" type="text" placeholder="Escribe el nombre del Asesor" ng-disabled="vm.EstaEdicion">
+        </div>
+    </div>
+</div>
+<div id="modalOT" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Numero de OT</h4>
+            </div>
+            <div class="modal-body">
+                <p>Ingrese el numero de OT a consultar:</p>
+                <input type="text" class="form-control" id="numeroOT" ng-model="vm.model.OT" />
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary" ng-click="vm.buscarCliente()">Buscar</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<div id="modalDiscriminador" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header text-center">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Resultados Obtenidos</h4>
+            </div>
+            <div class="modal-body">
+                <p>Escoja el registro a consultar:</p>
+                <table class="table table-bordered text-center tblListaFormatos">
+                    <thead>
+                        <tr>
+                            <th class="text-center">Cliente</th>
+                            <th class="text-center">Categoria</th>
+                            <th class="text-center">DNI/RUC</th>
+                            <th class="text-center">Placa</th>
+                            <th class="text-center">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tr ng-repeat="resultado in vm.resultados">
+                        <td>{{resultado.CLIENTE}}</td>
+                        <td>{{resultado.COMP}}</td>
+                        <td>{{resultado.DNIRUC}}</td>
+                        <td>{{resultado.PLACA}}</td>
+                        <td><button class="btn btnVer" ng-click="vm.cargarDatos(resultado)"><i class="fa fa-search"></i> Ver</button></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

@@ -1,0 +1,29 @@
+﻿
+@{
+    bool EstaSeleccionado = false;
+
+    if (ViewData.Eval("Valor") is bool)
+    {
+        EstaSeleccionado = (bool)ViewData.Eval("Valor");
+    }
+
+    if (ViewData.Eval("Valor").ToString() == "True")
+    {
+        EstaSeleccionado = true;
+    }
+    else
+    {
+        EstaSeleccionado = false;
+    }
+}
+
+<td style="font-size:1.6em" class="text-center atencion @ViewData.Eval("Color")">
+    @if (EstaSeleccionado)
+    {
+        <i class="fa fa-check-square-o"></i>
+    }
+    else
+    {
+        <i class="fa fa-square-o"></i>
+    }
+</td>

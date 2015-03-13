@@ -1,0 +1,400 @@
+<div class="row">
+    <div class="row" style="margin-top:5em">
+        <!--<div class="col-md-4 text-center">
+            <img src="/Images/nissan-logo.png" style="width:35%">
+        </div>
+        <div class="col-md-4 text-center">
+            <img src="/Images/ford-logo.png">
+        </div>
+        <div class="col-md-4 text-center">
+            <img src="/Images/volkswagen-logo.png" style="width:30%; margin-top:30px">
+        </div>-->
+    </div>
+    <div class="row text-center" style="margin-bottom:1em">
+        <div class="col-md-10">
+            <h2>INVENTARIO DE VEHÍCULOS</h2>
+        </div>
+        <div class="col-md-2">
+            <label>Numero OT</label>
+            <input type="text" class="form-control" ng-model="vm.model.OT" onclick="$('#modalOT').modal('show');">
+        </div>
+        
+    </div>
+    <div class="row">
+        <table class="table">
+            <tr>
+                <td>Fecha de recepcion</td>
+                <td><input type="text" class="form-control" ng-model="vm.model.FECHAINGRESO" readonly></td>
+                <td>Hora</td>
+                <td><input type="text" class="form-control" ng-model="vm.model.HORAINGRESO" readonly></td>
+                <td>Placa</td>
+                <td><input type="text" class="form-control" ng-model="vm.model.PLACA" readonly></td>
+                <td>Kilometraje de llegada</td>
+                <td><input type="text" class="form-control" ng-model="vm.model.KMLLEGADA" readonly></td>
+            </tr>
+        </table>
+    </div>
+    <div class="row">
+        <table class="table">
+            <tr>
+                <td>FECHA PROMETIDA</td>
+                <td><input type="text" class="form-control" ng-model="vm.model.FECHAPROMETIDA" readonly></td>
+                <td style="width:200px">HORA PROMETIDA</td>
+                <td><input type="text" class="form-control" ng-model="vm.model.HORAPROMETIDA" readonly></td>
+            </tr>
+            <tr>
+                <td>FACTURAR A:</td>
+                <td><input type="text" class="form-control" ng-model="vm.model.CLIENTE" readonly></td>
+                <td>RUC</td>
+                <td><input type="text" class="form-control" ng-model="vm.model.DNIRUC" maxlength="11" readonly></td>
+            </tr>
+            <tr>
+                <td>PROPIETARIO</td>
+                <td><input type="text" class="form-control" ng-model="vm.model.CLIENTE" readonly></td>
+                <td><input type="radio" value="true" ng-model="vm.model.BoletaFactura" readonly> BOLETA</td>
+                <td><input type="radio" value="false" ng-model="vm.model.BoletaFactura" readonly> FACTURA</td>
+            </tr>
+            <tr>
+                <td>DIRECCION:</td>
+                <td><input type="text" class="form-control" ng-model="vm.model.DIRECCION" readonly></td>
+                <td>TELEFONO/MOVIL</td>
+                <td><input type="text" class="form-control" ng-model="vm.model.TELEFONO" readonly></td>
+            </tr>
+            <tr>
+                <td>CORREO ELECTRONICO:</td>
+                <td><input type="text" class="form-control" ng-model="vm.model.EMAIL" readonly></td>
+                <td>DNI</td>
+                <td><input type="text" class="form-control" ng-model="vm.model.DNIRUC" maxlength="8" readonly></td>
+            </tr>
+            <tr>
+                <td style="width:200px">EL CLIENTE MANIFIESTA QUE:</td>
+                <td colspan="3">
+                    <textarea rows="5" class="form-control" style="resize:none" ng-model="vm.model.ManifestoCliente"></textarea>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="row">
+        <div class="col-md-9">
+            <canvas id="myCanvas" width="750" height="350"></canvas>
+            <style type="text/css">
+                canvas {
+                    display: block;
+                    margin: 1em auto;
+                    border: 1px solid black;
+                }
+
+                #myCanvas {
+                    background: url('/Images/auto.png') no-repeat;
+                    background-size: 750px 350px;
+                }
+
+                #gasolinaCanvas {
+                    background: url('/Images/gasolina.png') no-repeat;
+                    background-size: 200px 150px;
+                }
+            </style>
+
+        </div>
+        <div class="col-md-3">
+            <canvas id="gasolinaCanvas" width="200" height="150"></canvas>
+        </div>
+        <div id="modalAutoparte" class="modal fade">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">Estado de Autoparte</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>Seleccione en que estado se encuentra la autoparte:</p>
+                        <select class="form-control" name="indicador" id="estadoAutoparte" ng-disabled="estaModoEdicion">
+                            <option value="" selected disabled> --Seleccione-- </option>
+                            <option value="Rayado">Rayado</option>
+                            <option value="Abollado">Abollado</option>
+                            <option value="Falta">Falta</option>
+                        </select>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                        <button type="button" class="btn btn-primary" ng-click="vm.agregarCoordenada()">Guardar</button>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+
+        <div id="modalGasolina" class="modal fade">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">Nivel de Gasolina</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>Seleccione en que estado se encuentra la autoparte:</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                        <button type="button" class="btn btn-primary" ng-click="vm.agregarCoordenadaGasolina()">Guardar</button>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+    </div>
+    <div class="row">
+        <h2 class="text-center">INVENTARIO DE RECEPCION</h2>
+        <div class="col-md-6">
+            <div class="table-responsive">
+                <table class="table tblInventarioRecepcion">
+                    <tr>
+                        <td>CENICERO</td>
+                        <td><input type="checkbox" ng-model="vm.model.Cenicero"></td>
+                        <td>TAPASOL</td>
+                        <td><input type="checkbox" ng-model="vm.model.TapaSol"></td>
+                    </tr>
+                    <tr>
+                        <td>ENCENDEDOR</td>
+                        <td><input type="checkbox" ng-model="vm.model.Encendedor"></td>
+                        <td>PLUMILLAS/DUCHAS</td>
+                        <td><input type="checkbox" ng-model="vm.model.PlumillasDuchas"></td>
+                    </tr>
+                    <tr>
+                        <td>RADIO</td>
+                        <td><input type="checkbox" ng-model="vm.model.Radio"></td>
+                        <td>ESCAPINES</td>
+                        <td><input type="checkbox" ng-model="vm.model.Escapines"></td>
+                    </tr>
+                    <tr>
+                        <td>MASCARA DE RADIO</td>
+                        <td><input type="checkbox" ng-model="vm.model.MascaraRadio"></td>
+                        <td>EMBL. MASCARA</td>
+                        <td><input type="checkbox" ng-model="vm.model.EmblMascara"></td>
+                    </tr>
+                    <tr>
+                        <td>ANTENA</td>
+                        <td><input type="checkbox" ng-model="vm.model.Antena"></td>
+                        <td>TAPA DE ACEITE</td>
+                        <td><input type="checkbox" ng-model="vm.model.TapaAceite"></td>
+                    </tr>
+                    <tr>
+                        <td>TARJETA DE PROPIEDAD</td>
+                        <td><input type="checkbox" ng-model="vm.model.TarjetaPropiedad"></td>
+                        <td>TAPA TANQUE COMB.</td>
+                        <td><input type="checkbox" ng-model="vm.model.TapaTanqueComb"></td>
+                    </tr>
+                    <tr>
+                        <td>SOAT</td>
+                        <td><input type="checkbox" ng-model="vm.model.Soat"></td>
+                        <td>TAPA DE RADIADOR</td>
+                        <td><input type="checkbox" ng-model="vm.model.TapaRadiador"></td>
+                    </tr>
+                    <tr>
+                        <td>SEGURO DE RUEDA</td>
+                        <td><input type="checkbox" ng-model="vm.model.SeguroRueda"></td>
+                        <td>TAPA DE DEP. REFRG.</td>
+                        <td><input type="checkbox" ng-model="vm.model.TapaDepRefrg"></td>
+                    </tr>
+                    <tr>
+                        <td>VASOS DE RUEDA</td>
+                        <td><input type="checkbox" ng-model="vm.model.VasosRueda"></td>
+                        <td>TAPA DEP. LIQ FREN/EMG</td>
+                        <td><input type="checkbox" ng-model="vm.model.TapaDepLiqFren"></td>
+                    </tr>
+                    <tr>
+                        <td>LUCES BAJAS</td>
+                        <td><input type="checkbox" ng-model="vm.model.LucesBajas"></td>
+                        <td>LLANTA DE REPUESTO</td>
+                        <td><input type="checkbox" ng-model="vm.model.LlantaRepuesto"></td>
+                    </tr>
+
+                </table>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="table-responsive">
+                <table class="table tblInventarioRecepcion">
+                    <tr>
+                        <td>LUCES ALTAS</td>
+                        <td><input type="checkbox" ng-model="vm.model.LucesAltas"></td>
+                        <td>GATA/PALANCA</td>
+                        <td><input type="checkbox" ng-model="vm.model.GataPalanca"></td>
+                    </tr>
+                    <tr>
+                        <td>NEBLINEROS</td>
+                        <td><input type="checkbox" ng-model="vm.model.Neblineros"></td>
+                        <td>LLAVE DE RUEDA</td>
+                        <td><input type="checkbox" ng-model="vm.model.LlaveRueda"></td>
+                    </tr>
+                    <tr>
+                        <td>CLAXON</td>
+                        <td><input type="checkbox" ng-model="vm.model.Claxon"></td>
+                        <td>EMBL. DE MALETERA</td>
+                        <td><input type="checkbox" ng-model="vm.model.EmblMaletera"></td>
+                    </tr>
+                    <tr>
+                        <td>ESPEJOS</td>
+                        <td><input type="checkbox" ng-model="vm.model.Espejos"></td>
+                        <td>HERRAMIENTAS</td>
+                        <td><input type="checkbox" ng-model="vm.model.Herramientas"></td>
+                    </tr>
+                    <tr>
+                        <td>PISOS JEBE/ALFOMBRA</td>
+                        <td><input type="checkbox" ng-model="vm.model.PisosJebeAlfombra"></td>
+                        <td>CAJA DE CD/BAJO</td>
+                        <td><input type="checkbox" ng-model="vm.model.CajaCd"></td>
+                    </tr>
+                    <tr>
+                        <td>CORTE DE CORRIENTE</td>
+                        <td><input type="checkbox" ng-model="vm.model.CorteCorriente"></td>
+                        <td>BOTIQUIN</td>
+                        <td><input type="checkbox" ng-model="vm.model.Botiquin"></td>
+                    </tr>
+                    <tr>
+                        <td>LUNAS ELECTRICAS DELT</td>
+                        <td><input type="checkbox" ng-model="vm.model.LunasElectricasDelt"></td>
+                        <td>EXTINTOR</td>
+                        <td><input type="checkbox" ng-model="vm.model.Extintor"></td>
+                    </tr>
+                    <tr>
+                        <td>LUNAS ELECTRICAS POST</td>
+                        <td><input type="checkbox" ng-model="vm.model.LunasElectricasPost"></td>
+                        <td>TRIANGULO</td>
+                        <td><input type="checkbox" ng-model="vm.model.Triangulo"></td>
+                    </tr>
+                    <tr>
+                        <td>SIST. A/C /VENTILADOR</td>
+                        <td><input type="checkbox" ng-model="vm.model.SistVentilador"></td>
+                        <td>CABLE BATERIA</td>
+                        <td><input type="checkbox" ng-model="vm.model.CableBateria"></td>
+                    </tr>
+                    <tr>
+                        <td>TACOMETRO</td>
+                        <td><input type="checkbox" ng-model="vm.model.Tacometro"></td>
+                        <td>CABLE REMOLQUE</td>
+                        <td><input type="checkbox" ng-model="vm.model.CableRemolque"></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="row" style="margin-bottom:2em">
+        <div class="col-md-6">
+            <div class="row text-center" style="padding:1em">
+                <h2>Dejó objetos de valor</h2>
+                <div class="col-md-6">
+                    <input type="radio" value="true" ng-model="vm.model.ObjetosValor"> SI
+                </div>
+                <div class="col-md-6">
+                    <input type="radio" value="false" ng-model="vm.model.ObjetosValor"> NO
+                </div>
+            </div>
+            <div class="row text-center" style="padding:1em">
+                <h2>No se puede verificar posibles rayaduras por estar el vehículo sucio</h2>
+                <div class="col-md-6">
+                    <input type="radio" value="true" ng-model="vm.model.VehiculoSucioRayaduras"> SI
+                </div>
+                <div class="col-md-6">
+                    <input type="radio" value="false" ng-model="vm.model.VehiculoSucioRayaduras"> NO
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="row text-center" style="padding:0.5em">
+                <h3 style="text-decoration:underline; margin:0">RECEPCION GNECCO & CIA</h3>
+                <h3 style="margin:0">(INVENTARIO DE ACCESORIOS)</h3>
+            </div>
+            <div class="row" style="padding:0.5em">
+                <div class="col-md-6 text-center" style="margin-top:135px">
+                    <input type="text" class="form-control" id="demo" ng-model="vm.model.Asesor" />
+                    <p>ASESOR</p>
+                </div>
+                <div class="col-md-6 text-center">
+                    <div id="signature-pad" class="m-signature-pad">
+                        <div class="m-signature-pad--body">
+                            <canvas width="658" height="318"></canvas>
+                        </div>
+                        <div class="m-signature-pad--footer">
+                            <!--<div class="description">Firma de Conformidad</div>-->
+                            <button class="button clear" data-action="clear">Limpiar</button>
+                            <button class="button save" data-action="save" style="display:none">Guardar</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="row" style="margin-bottom:2em">
+        <div class="col-md-12">
+            <label>OBSERVACIONES</label>
+            <textarea class="form-control" rows="3" style="resize:none" ng-model="vm.model.Observaciones"></textarea>
+        </div>
+    </div>
+    <span class="pull-right" style="margin-bottom:1em">
+        <button class="btn btnGuardar" ng-click="vm.guardar()">
+            Guardar Formato <i class="fa fa-save"></i>
+        </button>
+        <button class="btn btnCancelar" href="vm.index()">
+            Cancelar <i class="fa fa-arrow-left"></i>
+        </button>
+    </span>
+    <div id="modalOT" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Numero de OT</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Ingrese el numero de OT a consultar:</p>
+                    <input type="text" class="form-control" id="numeroOT" ng-model="vm.model.OT"/>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-primary" ng-click="vm.buscarCliente()">Buscar</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+    <div id="modalDiscriminador" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header text-center">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Resultados Obtenidos</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Escoja el registro a consultar:</p>
+                    <table class="table table-bordered text-center tblListaFormatos">
+                        <thead>
+                            <tr>
+                                <th class="text-center">Cliente</th>
+                                <th class="text-center">Categoria</th>
+                                <th class="text-center">DNI/RUC</th>
+                                <th class="text-center">Placa</th>
+                                <th class="text-center">Acciones</th>
+                            </tr>
+                        </thead>
+                        <tr ng-repeat="resultado in vm.resultados">
+                            <td>{{resultado.CLIENTE}}</td>
+                            <td>{{resultado.COMP}}</td>
+                            <td>{{resultado.DNIRUC}}</td>
+                            <td>{{resultado.PLACA}}</td>
+                            <td><button class="btn btnVer" ng-click="vm.cargarDatos(resultado)"><i class="fa fa-search"></i> Ver</button></td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+</div>
+
+<script src="/Scripts/Vendor/signature_pad.js"></script>
+<script src="/Scripts/Vendor/app.js"></script>
+<script src="/Scripts/Vendor/draw-car.js"></script>
+
+

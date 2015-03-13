@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{DBB05646-E529-4AD1-A69B-976D6434C0FB}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Gnecco.Sigma.Datos</RootNamespace>
+    <AssemblyName>Gnecco.Sigma.Datos</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.2\lib\net40\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.2\lib\net40\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Class1.cs" />
+    <Compile Include="InformesInspeccion\Ford\Configuracion\DetalleGrupoArticuloMantenimientoConfiguracion.cs" />
+    <Compile Include="InformesInspeccion\Ford\Configuracion\DetalleGrupoDesgasteFrenoConfiguracion.cs" />
+    <Compile Include="InformesInspeccion\Ford\Configuracion\DetalleGrupoDesgasteLlantaConfiguracion.cs" />
+    <Compile Include="InformesInspeccion\Ford\Configuracion\DetalleGrupoSistemaComponenteConfiguracion.cs" />
+    <Compile Include="InformesInspeccion\Ford\Configuracion\DetalleInformeInspeccionFordCompletoConfiguracion.cs" />
+    <Compile Include="InformesInspeccion\Ford\Configuracion\DetalleInformeInspeccionFordConfiguracion.cs" />
+    <Compile Include="InformesInspeccion\Ford\Configuracion\GrupoArticuloMantenimientoConfiguracion.cs" />
+    <Compile Include="InformesInspeccion\Ford\Configuracion\GrupoDesgasteFrenoConfiguracion.cs" />
+    <Compile Include="InformesInspeccion\Ford\Configuracion\GrupoDesgasteLlantaConfiguracion.cs" />
+    <Compile Include="InformesInspeccion\Ford\Configuracion\GrupoInformeInspeccionFordConfiguracion.cs" />
+    <Compile Include="InformesInspeccion\Ford\Configuracion\GrupoSistemaComponenteConfiguracion.cs" />
+    <Compile Include="InformesInspeccion\Ford\Configuracion\InformeInspeccionFordCompletoConfiguracion.cs" />
+    <Compile Include="InformesInspeccion\Ford\Configuracion\InformeInspeccionFordConfiguracion.cs" />
+    <Compile Include="InformesInspeccion\Ford\FordContext.cs" />
+    <Compile Include="InformesInspeccion\Ford\Repositorios\InformeInspeccionFordCompletoRepositorio.cs" />
+    <Compile Include="InformesInspeccion\Ford\Repositorios\InformeInspeccionFordRepositorio.cs" />
+    <Compile Include="InformesInspeccion\Nissan\Configuracion\InformeInspeccionCompletoConfiguracion.cs" />
+    <Compile Include="InformesInspeccion\Nissan\Configuracion\InformeInspeccionNissanCompletoConfiguracion.cs" />
+    <Compile Include="InformesInspeccion\Nissan\Configuracion\InformeInspeccionNissanConfiguracion.cs" />
+    <Compile Include="InformesInspeccion\Nissan\NissanContext.cs" />
+    <Compile Include="InformesInspeccion\Nissan\Repositorios\InformeInspeccionNissanCompletoRepositorio.cs" />
+    <Compile Include="InformesInspeccion\Nissan\Repositorios\InformeInspeccionNissanRepositorio.cs" />
+    <Compile Include="InformesInspeccion\Volkswagen\Configuracion\InformeInspeccionCompletoConfiguracion.cs" />
+    <Compile Include="InformesInspeccion\Volkswagen\Configuracion\InformeInspeccionVolkswagenCompletoConfiguracion.cs" />
+    <Compile Include="InformesInspeccion\Volkswagen\Configuracion\InformeInspeccionVolkswagenConfiguracion.cs" />
+    <Compile Include="InformesInspeccion\Volkswagen\Configuracion\ValorOpcionConfiguracion.cs" />
+    <Compile Include="InformesInspeccion\Volkswagen\Repositorios\InformeInspeccionVolkswagenCompletoRepositorio.cs" />
+    <Compile Include="InformesInspeccion\Volkswagen\Repositorios\InformeInspeccionVolkswagenRepositorio.cs" />
+    <Compile Include="InformesInspeccion\Volkswagen\VolkswagenContext.cs" />
+    <Compile Include="Inventario\Configuracion\InventarioConfiguracion.cs" />
+    <Compile Include="Inventario\InventarioContext.cs" />
+    <Compile Include="Inventario\Repositorios\InventarioRepositorio.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sap\Configuracion\SapConfiguracion.cs" />
+    <Compile Include="Sap\Reporsitorios\SapViewRepositorio.cs" />
+    <Compile Include="Sap\SapViewContext.cs" />
+    <Compile Include="Shared\BaseContext.cs" />
+    <Compile Include="Shared\Helper.cs" />
+    <Compile Include="Shared\SapContext.cs" />
+    <Compile Include="Usuario\Configuracion\UsuarioConfiguracion.cs" />
+    <Compile Include="Usuario\Reporsitorios\UsuarioRepositorio.cs" />
+    <Compile Include="Usuario\UsuarioContext.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Scripts\1_CreacionBD.sql" />
+    <Content Include="Scripts\1_CreacionBDv2.sql" />
+    <Content Include="Scripts\2_CREACIONBDv3.sql" />
+    <Content Include="Scripts\4_CreacionBDv4.sql" />
+    <Content Include="Scripts\5_CreacionBDv5.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Gnecco.Sigma.Core\Gnecco.Sigma.Core.csproj">
+      <Project>{f2565243-d88f-46f0-90c7-16aa5ad723d7}</Project>
+      <Name>Gnecco.Sigma.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,85 @@
+<div class="container">
+    <div class="row" style="margin-top:5em">
+        <div class="col-md-12">
+            <button class="btn btn-success margen-2x" ng-click="vm.index()" style="margin:1em 0">
+                <i class="fa fa-arrow-left"></i> Volver
+            </button>
+            <div class="panel panel-primary ">
+                <div class="panel-heading ">
+                    <h2 class="panel-title">Formato Nissan</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-8 mantNissan">
+                            <label>Mantenimiento:</label>
+                            <br>
+                            <input type="checkbox" ng-model="vm.model.Preventivo">Preventivo
+                            <input type="checkbox" ng-model="vm.model.Correctivo">Correctivo
+                            <input type="text" class="form-control" placeholder="kms" style="width:30%" ng-model="vm.model.Kms">
+                        </div>
+                        <div class="col-md-2">
+                            <label>Numero de OT:</label>
+                            <input type="text" class="form-control" ng-model="vm.model.NumeroOT">
+                        </div>
+                        <div class="col-md-2">
+                            <label>Fecha:</label>
+                            <input type="text" class="form-control" ng-model="vm.model.Fecha">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Cliente:</label>
+                            <input type="text" class="form-control" ng-model="vm.model.Cliente">
+                        </div>
+                        <div class="col-md-4">
+                            <label>Técnico:</label>
+                            <input type="text" class="form-control" ng-model="vm.model.Tecnico">
+                        </div>
+                        <div class="col-md-2">
+                            <label>Placa:</label>
+                            <input type="text" class="form-control" ng-model="vm.model.Placa">
+                        </div>
+                    </div>
+                    <hr />
+                    
+                    <tabla-informe-inspeccion grupos="vm.model.Grupos"
+                                              agregar-grupo="vm.agregarGrupo"
+                                              agregar-detalle="vm.agregarDetalle"
+                                              esta-modo-edicion="vm.estaModoEdicion"
+                                              eliminar-detalle="vm.eliminarDetalle">
+                    </tabla-informe-inspeccion>
+                    <tabla-grupo-especial grupos-especiales="vm.model.GruposEspeciales"
+                                          agregar-grupo-especial="vm.agregarGrupoEspecial"
+                                          agregar-detalle-accesorios="vm.agregarDetalleAccesorios"
+                                          esta-modo-edicion="vm.estaModoEdicion"
+                                          eliminar-detalle="vm.eliminarDetalle">
+                    </tabla-grupo-especial>
+                    <tabla-control-calidad grupos-calidad="vm.model.GruposCalidad"
+                                           agregar-grupo-calidad="vm.agregarGrupoCalidad"
+                                           agregar-detalle-calidad="vm.agregarDetalleCalidad"
+                                           esta-modo-edicion="vm.estaModoEdicion"
+                                           eliminar-detalle="vm.eliminarDetalle">
+                    </tabla-control-calidad>
+
+                    <div class="col-md-12">
+                        <textarea class="form-control" rows="3" id="textArea" style="resize:none" ng-model="vm.model.ResultadosMantenimiento"></textarea>
+                        <span class="help-block">Comentarios.</span>
+                    </div>
+                    <!--<div class="col-md-4 text-center">
+                        <span class="" name="fechaCreacion">10/01/2015</span>
+                        <p>Fecha</p>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <input class="form-control" name="nombreTecnico" type="text" ng-model="nombreTecnico" placeholder="Escribe el nombre del Tecnico">
+                        <p>Nombre del Técnico</p>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <input class="form-control" name="nombreAsesor" type="text" ng-model="nombreAsesor" placeholder="Escribe el nombre del Asesor">
+                        <p>Nombre del Asesor</p>
+                    </div>-->
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

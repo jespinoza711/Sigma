@@ -1,0 +1,48 @@
+<table class="table table-bordered text-center pull-right">
+	<thead>
+        <tr class="cabecera-tabla text-center">
+            <th class="volkswagen text-center">Descripcion</th>
+            <th class="volkswagen text-center">Del. Der</th>
+            <th class="volkswagen text-center">Del. Izq</th>
+            <th class="volkswagen text-center">Post. Der</th>
+            <th class="volkswagen text-center">Post. Izq</th>
+            <th class="volkswagen text-center">Rpto.</th>
+            <th class="volkswagen text-center">OK</th>
+            <th class="volkswagen text-center">No OK</th>
+            <th class="volkswagen text-center">Corregido</th>
+            <th class="volkswagen text-center" ng-if="estaModoEdicion">Acciones</th>
+        </tr>
+	</thead>
+	<tbody>
+        <tr ng-repeat="fila in model.FilaEspecial">
+            <td style="width:650px" class="col-xs-1">
+                <textarea class="form-control" ng-model="fila.Descripcion" style="resize:none"></textarea> 
+            </td>
+            <td style="width:70px" class="col-xs-1">
+                <input type="text" class="form-control" ng-model="fila.DelDer" />
+            </td>
+            <td style="width:70px" class="col-xs-1">
+                <input type="text" class="form-control" ng-model="fila.DelIzq" />
+            </td>
+            <td style="width:70px" class="col-xs-1">
+                <input type="text" class="form-control" ng-model="fila.PostDer" />
+            </td>
+            <td style="width:70px" class="col-xs-1">
+                <input type="text" class="form-control" ng-model="fila.PostIzq" />
+            </td>
+            <td style="width:70px" class="col-xs-1">
+                <input type="text" class="form-control" ng-model="fila.Rpto" />
+            </td>
+            <td style="width:20px" ng-repeat="Opcion in fila.OpcionesCondicion">
+                <div class="radio">
+                    <label>
+                        <input type="checkbox" ng-model="fila.Valor" ng-disabled="estaModoEdicion">
+                    </label>
+                </div>
+            </td>
+            <td ng-if="estaModoEdicion">
+                <a class="btn btnAnular" ng-click="eliminarFilaEspecial($index)"><i class="fa fa-remove"></i></a>
+            </td>
+        </tr>
+	</tbody>
+</table>

@@ -1,0 +1,218 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
+  <Class Name="Gnecco.Sigma.Core.Shared.InformeInspeccion">
+    <Position X="1.5" Y="0.5" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAIAAAAAAAAAAAgAABAAAAAAAAQAAAAAAIAAA=</HashCode>
+      <FileName>Shared\InformeInspeccion.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Gnecco.Sigma.Core.InformesInspeccion.Nissan.Entidades.InformeInspeccionNissan">
+    <Position X="4.5" Y="4" Width="3.5" />
+    <AssociationLine Name="InformesInspeccionCompletos" Type="Gnecco.Sigma.Core.InformesInspeccion.Nissan.Entidades.InformeInspeccionNissanCompleto">
+      <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
+        <Position X="0.507" Y="1.371" Height="0.182" Width="2.342" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="GruposDetallesInformeInspeccionNissan" Type="Gnecco.Sigma.Core.InformesInspeccion.Nissan.Entidades.GrupoInformeInspeccionNissan">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.1" Y="0.091" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AMBAAEAAgAAAAAAAAAAgAAAgABQAAAAAASAACQMAQAA=</HashCode>
+      <FileName>InformesInspeccion\Nissan\Entidades\InformeInspeccionNissan.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="InformesInspeccionCompletos" />
+      <Property Name="GruposDetallesInformeInspeccionNissan" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Gnecco.Sigma.Core.InformesInspeccion.Nissan.Entidades.DetalleInformeInspeccionNissan">
+    <Position X="11.25" Y="6" Width="4.5" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <InheritanceLine Type="Gnecco.Sigma.Core.Shared.DetalleInformeInspeccion" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="19.75" Y="6.782" />
+        <Point X="16.125" Y="6.782" />
+        <Point X="16.125" Y="6.75" />
+        <Point X="15.75" Y="6.75" />
+      </Path>
+    </InheritanceLine>
+    <AssociationLine Name="OpcionesCheckRevision" Type="Gnecco.Sigma.Core.Shared.Opcion">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-1.299" Y="0.288" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="OpcionesMedicion" Type="Gnecco.Sigma.Core.Shared.Opcion">
+      <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
+        <Position X="-1.57" Y="1.352" Height="0.182" Width="1.283" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="OpcionesCheckCalidad" Type="Gnecco.Sigma.Core.Shared.Opcion">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-1.199" Y="0.985" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>BCAAAAAAAAAQAAAAAAACAAAAAAAEQAAAQQAAAABICAA=</HashCode>
+      <FileName>InformesInspeccion\Nissan\Entidades\DetalleInformeInspeccionNissan.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="OpcionesCheckRevision" />
+      <Property Name="OpcionesMedicion" />
+      <Property Name="OpcionesCheckCalidad" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Gnecco.Sigma.Core.Shared.DetalleInformeInspeccion">
+    <Position X="19.75" Y="5.75" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAIAAAAAAAABAAAAAAAAAAAAAAAIAAA=</HashCode>
+      <FileName>Shared\DetalleInformeInspeccion.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Gnecco.Sigma.Core.InformesInspeccion.Nissan.Entidades.InformeInspeccionNissanCompleto">
+    <Position X="1.25" Y="9.25" Width="3.75" />
+    <InheritanceLine Type="Gnecco.Sigma.Core.Shared.InformeInspeccionCompleto" FixedToPoint="true">
+      <Path>
+        <Point X="1.625" Y="8.132" />
+        <Point X="1.625" Y="8.875" />
+        <Point X="2.312" Y="8.875" />
+        <Point X="2.312" Y="9.25" />
+      </Path>
+    </InheritanceLine>
+    <AssociationLine Name="GruposInformeInspeccionNissanCompleto" Type="Gnecco.Sigma.Core.InformesInspeccion.Nissan.Entidades.GrupoInformeInspeccionNissanCompleto">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.202" Y="0.417" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAgEAAAAIAAAAICAAAAAAEAEAAAAAAAAAgAAAIA=</HashCode>
+      <FileName>InformesInspeccion\Nissan\Entidades\InformeInspeccionNissanCompleto.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="GruposInformeInspeccionNissanCompleto" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Gnecco.Sigma.Core.Shared.InformeInspeccionCompleto">
+    <Position X="0.5" Y="6" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAEAAAAAAAAAAAAAAAAAQAAAAAAIAAA=</HashCode>
+      <FileName>Shared\InformeInspeccionCompleto.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Gnecco.Sigma.Core.Shared.GrupoInformeInspeccion">
+    <Position X="18" Y="0.5" Width="4" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Shared\GrupoInformeInspeccion.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Gnecco.Sigma.Core.Shared.Opcion">
+    <Position X="11" Y="11" Width="4.5" />
+    <TypeIdentifier>
+      <HashCode>AACCAAAAAAAAAAAAAAAAAAABIAAAAAAAQAAAAAAIAAA=</HashCode>
+      <FileName>Shared\Opcion.cs</FileName>
+      <NewMemberFileName>Shared\DetalleInformeInspeccion.cs</NewMemberFileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Gnecco.Sigma.Core.InformesInspeccion.Nissan.Entidades.GrupoInformeInspeccionNissan">
+    <Position X="11.25" Y="1" Width="4" />
+    <AssociationLine Name="Detalles" Type="Gnecco.Sigma.Core.InformesInspeccion.Nissan.Entidades.DetalleInformeInspeccionNissan">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-3.121" Y="0.701" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAAAEAAAACAAAEAAACUAAAQQCAAAAAIBAA=</HashCode>
+      <FileName>InformesInspeccion\Nissan\Entidades\GrupoInformeInspeccionNissan.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Detalles" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Gnecco.Sigma.Core.InformesInspeccion.Nissan.Entidades.DetalleInformeInspeccionNissanCompleto">
+    <Position X="2.25" Y="17" Width="4" />
+    <AssociationLine Name="DetalleInformeInspeccionNissan" Type="Gnecco.Sigma.Core.InformesInspeccion.Nissan.Entidades.DetalleInformeInspeccionNissan" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="6.25" Y="18" />
+        <Point X="8.962" Y="18" />
+        <Point X="8.962" Y="7.304" />
+        <Point X="11.25" Y="7.304" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.074" Y="-7.163" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaAAA=</HashCode>
+      <FileName>InformesInspeccion\Nissan\Entidades\DetalleInformeInspeccionNissanCompleto.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="DetalleInformeInspeccionNissan" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Gnecco.Sigma.Core.Shared.DetalleInformeInspeccionCompleto">
+    <Position X="7.5" Y="19" Width="4.25" />
+    <AssociationLine Name="Valores" Type="Gnecco.Sigma.Core.Shared.ValorOpcion" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="11.75" Y="19.562" />
+        <Point X="18.5" Y="19.562" />
+        <Point X="18.5" Y="14.632" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="1.41" Y="1.329" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAACIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Shared\DetalleInformeInspeccionCompleto.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Valores" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Gnecco.Sigma.Core.Shared.ValorOpcion">
+    <Position X="17.5" Y="12.5" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAIQAACAAEAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Shared\ValorOpcion.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Opcion" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Gnecco.Sigma.Core.InformesInspeccion.Nissan.Entidades.GrupoInformeInspeccionNissanCompleto">
+    <Position X="2.25" Y="13.75" Width="3.25" />
+    <AssociationLine Name="GrupoinformeInspeccionNissan" Type="Gnecco.Sigma.Core.InformesInspeccion.Nissan.Entidades.GrupoInformeInspeccionNissan" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="5.5" Y="14.816" />
+        <Point X="8.481" Y="14.816" />
+        <Point X="8.481" Y="5.175" />
+        <Point X="11.875" Y="5.175" />
+        <Point X="11.875" Y="4.8" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.636" Y="0.628" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="DetallesInformeInspeccionNissanCompleto" Type="Gnecco.Sigma.Core.InformesInspeccion.Nissan.Entidades.DetalleInformeInspeccionNissanCompleto">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.09" Y="0.503" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAEAAAAAAAAABAgAAAAAAAAAgQ=</HashCode>
+      <FileName>InformesInspeccion\Nissan\Entidades\GrupoInformeInspeccionNissanCompleto.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="GrupoinformeInspeccionNissan" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="DetallesInformeInspeccionNissanCompleto" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

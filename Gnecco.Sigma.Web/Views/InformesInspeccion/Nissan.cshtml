@@ -1,0 +1,31 @@
+﻿@{
+    ViewBag.Title = "Nissan";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div ng-app="informesInspeccion.nissan">
+
+    <ui-view>
+
+    </ui-view>
+</div>
+
+@section scripts{
+    <script type="text/javascript" src="~/Scripts/App/Shared/Api/nissan.api.js"></script>
+
+    <script src="~/Scripts/App/Shared/Services/Mensajes.srv.js"></script>
+    <script src="~/Scripts/App/Shared/Services/Loader.srv.js"></script>
+    <script type="text/javascript" src="~/Scripts/App/InformesInspeccion/Nissan/app.js"></script>
+
+    <script type="text/javascript" src="~/Scripts/App/InformesInspeccion/Nissan/Controllers/index.ctrl.js"></script>
+    <script type="text/javascript" src="~/Scripts/App/InformesInspeccion/Nissan/Controllers/nuevo.ctrl.js"></script>
+    <script type="text/javascript" src="~/Scripts/App/InformesInspeccion/Nissan/Controllers/completar.ctrl.js"></script>
+    <script type="text/javascript" src="~/Scripts/App/InformesInspeccion/Nissan/Controllers/ver.ctrl.js"></script>
+    <script type="text/javascript" src="~/Scripts/App/InformesInspeccion/Nissan/Controllers/verCompletados.ctrl.js"></script>
+    <script type="text/javascript" src="~/Scripts/App/InformesInspeccion/Nissan/Controllers/verReporte.ctrl.js"></script>
+
+    <script type="text/javascript" src="~/Scripts/App/InformesInspeccion/Nissan/Directives/tablaInformeInspeccion.drv.js"></script>
+    <script type="text/javascript" src="~/Scripts/App/InformesInspeccion/Nissan/Directives/tablaGrupoEspecial.drv.js"></script>
+    <script type="text/javascript" src="~/Scripts/App/InformesInspeccion/Nissan/Directives/tablaControlCalidad.drv.js"></script>
+
+}

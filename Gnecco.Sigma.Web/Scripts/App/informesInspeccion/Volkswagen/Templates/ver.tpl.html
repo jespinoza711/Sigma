@@ -1,0 +1,39 @@
+<div class="container">
+	<div class="row" style="margin-top:5em">
+		<div class="col-md-12 volkswagen-maestro">
+			<div class="panel panel-primary ">
+			    <div class="panel-heading ">
+			        <h2 class="panel-title">Informe Maestro Volkswagen</h3>
+			    </div>
+			    <div class="panel-body">
+			    	<form>
+                        <input type="text" class="form-control pull-left" placeholder="Nombre de Informe" style="width:50%; margin:1em 0" ng-disabled="!vm.estaModoEdicion" ng-model="vm.model.Nombre" />
+			    		<span class="pull-right" style="margin-bottom:1em">
+
+                            <button class="btn btnGuardar" ng-click="vm.guardar()">
+                                Guardar Formato <i class="fa fa-save"></i>
+                            </button>
+							<button class="btn btnCancelar" ng-click="vm.index()"> 
+                                Cancelar <i class="fa fa-arrow-left"></i>
+                            </button>
+						</span>
+                        <tabla-informe-inspeccion model="vm.model"
+                                                  esta-modo-edicion="vm.estaModoEdicion"
+                                                  eliminar-detalle="vm.eliminarDetalle"
+                                                  eliminar-detalle-especial="vm.eliminarDetalleEspecial">
+                        </tabla-informe-inspeccion>
+				     	<div class="col-md-12" style="margin-bottom:1em">
+                            <button type="button" class="btn btn-success pull-right" data-toggle="modal" data-placement="top" data-target="#modalAgregarFila" title="Agregar Fila" ng-click="vm.agregarFila()">
+								Agregar Fila <i class="fa fa-plus-circle"></i> 
+							</button>
+						</div>
+						
+
+					</form>
+			    </div>
+			</div>
+		</div>
+	</div>	
+  </div>
+    
+    

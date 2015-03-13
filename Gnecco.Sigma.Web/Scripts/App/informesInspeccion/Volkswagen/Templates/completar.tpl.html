@@ -1,0 +1,97 @@
+<div class="container">
+	<div class="row" style="margin-top:5em">
+		<div class="col-md-12 volkswagen-maestro">
+			<div class="panel panel-primary ">
+			    <div class="panel-heading ">
+			        <h2 class="panel-title">Llenado de Datos Volkswagen</h3>
+			    </div>
+			    <div class="panel-body">
+                    <form>
+                        <input type="text" class="form-control pull-left" placeholder="Nombre de Informe" style="width:50%; margin:1em 0" ng-disabled="!vm.estaModoEdicion" ng-model="vm.model.Nombre" />
+                        <span class="pull-right" style="margin-bottom:2em">
+                            <button class="btn btn-default guardarFormato" ng-click="vm.completar()">
+                                Completar Formato <i class="fa fa-save"></i>
+                            </button>
+                            <button type="button" class="btn btn-danger back" ng-click="vm.cancelar()">
+                                Cancelar Llenado <i class="fa fa-arrow-left"></i>
+                            </button>
+                        </span>
+                        <tabla-informe-inspeccion esta-modo-edicion="vm.estaModoEdicion"
+                                                  model="vm.model">
+                        </tabla-informe-inspeccion>
+                        <hr>
+                        <div class="col-md-12">
+                            <textarea class="form-control " rows="3" id="textArea" style="resize:none" ng-disabled="vm.estaModoEdicion" ng-model="vm.model.Comentarios"></textarea>
+                            <span class="help-block">Comentarios.</span>
+                        </div>
+                        <div class="col-md-4 text-center">
+                            <!--<span class="" name="fechaCreacion">12/12/2014</span>
+                            <p>Fecha</p>-->
+                        </div>
+                        <div class="col-md-4 text-center">
+                            <input class="form-control " name="nombreTecnico" type="text" ng-model="vm.model.NombreTecnico" ng-disabled="vm.estaModoEdicion">
+                            <p>Nombre del Técnico</p>
+                        </div>
+                        <div class="col-md-4 text-center">
+                            <!--<span class="">_______________________________</span>
+                            <p>VoBo Jefe de Taller</p>-->
+                        </div>
+                    </form>
+			    </div>
+			</div>
+		</div>
+	</div>	
+  </div>
+<div id="modalOT" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Numero de OT</h4>
+            </div>
+            <div class="modal-body">
+                <p>Ingrese el numero de OT a consultar:</p>
+                <input type="text" class="form-control" id="numeroOT" ng-model="vm.model.OT" />
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary" ng-click="vm.buscarCliente()">Buscar</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<div id="modalDiscriminador" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header text-center">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Resultados Obtenidos</h4>
+            </div>
+            <div class="modal-body">
+                <p>Escoja el registro a consultar:</p>
+                <table class="table table-bordered text-center tblListaFormatos">
+                    <thead>
+                        <tr>
+                            <th class="text-center">Cliente</th>
+                            <th class="text-center">Categoria</th>
+                            <th class="text-center">DNI/RUC</th>
+                            <th class="text-center">Placa</th>
+                            <th class="text-center">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tr ng-repeat="resultado in vm.resultados">
+                        <td>{{resultado.CLIENTE}}</td>
+                        <td>{{resultado.COMP}}</td>
+                        <td>{{resultado.DNIRUC}}</td>
+                        <td>{{resultado.PLACA}}</td>
+                        <td><button class="btn btnVer" ng-click="vm.cargarDatos(resultado)"><i class="fa fa-search"></i> Ver</button></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
